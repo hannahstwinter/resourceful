@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resourceful</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if flash %>
+    <h3><%= flash[:notice] %></h3>
+  <% end %>
+
+  <%= link_to 'signup', signup_path %><br/>
+  <%= link_to 'home', root_path %><br/>
+
+  <% if current_user %>
+    Current User: <%= current_user.name %>
+    <%= link_to 'signout', signout_path, :method => :delete %>
+  <% else %>
+    <%= link_to 'signin', signin_path %>
+  <% end %><br/>
+
+<%= yield %>
+
+</body>
+</html>
