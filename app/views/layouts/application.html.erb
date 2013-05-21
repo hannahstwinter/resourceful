@@ -7,19 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if flash %>
-    <h3><%= flash[:notice] %></h3>
-  <% end %>
 
-  <%= link_to 'signup', signup_path %><br/>
-  <%= link_to 'home', root_path %><br/>
+<div class="page-head">
 
+  <ul class="page-nav">
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About', root_path %></li>
+    <li><%= link_to 'Mission', root_path %></li>
+    <li><%= link_to 'Contact', root_path %></li>
+    <li><%= link_to 'Signup', signup_path %></li>
+    <% if current_user %>
+      <li class="current-user-page-nav"><%= link_to 'Signout', signout_path, :method => :delete %></li>
+    <% else %>
+      <li class="current-user-page-nav"><%= link_to 'Signin', signin_path %></li>
+    <% end %>
+  </ul>
+
+  <div class="resourceful">
+    <p class="welcome">Welcome to Resourceful</p>
+    <p class="slogan">where people and resources meet</p>
+  </div>
+
+</div>
+
+<div class="current-user">
   <% if current_user %>
-    Current User: <%= current_user.name %>
-    <%= link_to 'signout', signout_path, :method => :delete %>
-  <% else %>
-    <%= link_to 'signin', signin_path %>
-  <% end %><br/>
+    <p class="user-info">Current User: <%= current_user.name %></p>
+  <% end %>
+</div>
+
+<div class="flash-notice">
+  <% if flash %>
+    <h3 class="flash"><%= flash[:notice] %></h3>
+  <% end %>
+</div>
 
 <%= yield %>
 
