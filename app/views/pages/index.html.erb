@@ -5,4 +5,16 @@
   However, they will more than likely look like Lorem Ipsum text for a while.<br/>
   Sorry.
   </p>
+
+<% @agencies.each do |agency| %>
+  <div class="agency">
+    <p id="agency-name"><%= agency.name %></p>
+    <p id="rating">In-house rating: <%= agency.in_house %> Overall rating: <%= agency.out_of_house %></p>
+    <p id="address"><%= agency.street %>, <%= agency.city %>, <%= agency.state %></p>
+    <p id="phone"><%= agency.phone %></p>
+    <p id="short-description"><%= agency.short_description %></p>
+    <p id="long-description"><%= agency.long_description %></p>
+  </div>
+<% end %>
+
 </div>
