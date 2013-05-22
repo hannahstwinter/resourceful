@@ -115,3 +115,14 @@ div.agency {
   padding: 0 5px 5px 20px;
   margin: 0 auto;
 }
+
+ul.user-info {
+  margin: 0;
+  padding: 5px 0 5px 0;
+  list-style-type: none;
+}
+
+ul.user-info li {
+  display: inline;
+  padding: 10px;
+}
