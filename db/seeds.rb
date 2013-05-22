@@ -19,6 +19,19 @@ require 'faker'
   long_description = Faker::Lorem.paragraph
   score1 = rand(25)
   score2 = rand(25)
+  tag_array = [ 'children',
+                'substance abuse',
+                'alcoholism',
+                'ptsd',
+                'trauma',
+                'hospice',
+                'GLBTQ',
+                'employment',
+                'health-care',
+                'womens health',
+                'immigration services'
+                ].sample(3)
+
 
   agency = Agency.create( :name => name,
                           :street => street,
@@ -28,6 +41,7 @@ require 'faker'
                           :short_description => short_description,
                           :long_description => long_description,
                           :in_house => score1,
-                          :out_of_house => score2
+                          :out_of_house => score2,
+                          :tag => tag_array
                           )
 end

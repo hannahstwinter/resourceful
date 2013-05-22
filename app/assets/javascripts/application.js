@@ -10,20 +10,23 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
 //= require_tree .
 
-// $(document).ready(function(){
+$(document).ready(function(){
+
+  // $('a#about').on('click', function(event){
+  //   event.preventDefault();
+  //   $.scrollTo($('div.about'), 500);
+  // }) NEED SCROLLTO PLUGIN?
 
 //   $(".signup").on("click", function(event){
 //     event.preventDefault();
-
 //   });
 
 //   $(".login").on("click", function(event){
 //     event.preventDefault();
-
 //   });
 
-// })
+})
