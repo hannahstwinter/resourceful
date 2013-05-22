@@ -8,7 +8,7 @@
 
 <% @agencies.each do |agency| %>
   <div class="agency">
-    <p id="agency-name"><%= agency.name %></p>
+    <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
     <p id="rating">In-house rating: <%= agency.in_house %> Overall rating: <%= agency.out_of_house %></p>
     <p id="address"><%= agency.street %>, <%= agency.city %>, <%= agency.state %></p>
     <p id="phone"><%= agency.phone %></p>
