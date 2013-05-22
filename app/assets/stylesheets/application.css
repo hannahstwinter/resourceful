@@ -78,6 +78,8 @@ div.resource-list {
 }
 
 div.flash-notice {
+  font-family: arial,sans serif;
+  color: #282528;
   width: 95%;
   margin: 0 auto;
 }
@@ -90,4 +92,26 @@ div.current-user {
   font-family: arial,sans serif;
   font-weight: bold;
   color: #282528;
+}
+
+div.agency {
+  font-family: arial,sans serif;
+  color: #282528;
+  width: 100%;
+  padding: 0 5px 5px 20px;
+  margin: 0 auto;
+}
+
+#new_user {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0 5px 5px 20px;
+  margin: 0 auto;
+}
+
+#signin {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0 5px 5px 20px;
+  margin: 0 auto;
 }

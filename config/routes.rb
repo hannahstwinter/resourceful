@@ -8,6 +8,8 @@ Resourceful::Application.routes.draw do
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy", :as => :signout
 
+  match "agency/:id" => "agencies#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
