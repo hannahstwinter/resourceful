@@ -12,7 +12,7 @@
 
   <ul class="page-nav">
     <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', root_path %></li>
+    <li><%= link_to 'About', '.about' %></li>
     <li><%= link_to 'Mission', root_path %></li>
     <li><%= link_to 'Contact', root_path %></li>
     <li><%= link_to 'Signup', signup_path %></li>
@@ -25,14 +25,20 @@
 
   <div class="resourceful">
     <p class="welcome">Welcome to Resourceful</p>
-    <p class="slogan">your source for resource</p>
+    <p class="slogan"><%= @slogan %></p>
   </div>
 
 </div>
 
 <div class="current-user">
   <% if current_user %>
-    <p class="user-info">Current User: <%= current_user.name %>, link to user page, Agency Name, etc.</p>
+    <ul class="user-info">
+      <li>Welcome, <%= current_user.name %></li>
+      <% if @agency %>
+        <li><%= @agency %></li>
+      <% end %>
+      <li><%= link_to 'User Page', root_path %></li>
+    </ul>
   <% end %>
 </div>
 
@@ -43,6 +49,10 @@
 </div>
 
 <%= yield %>
+
+<div class="about"></div>
+<div class="mission"></div>
+<div class="contact"></div>
 
 </body>
 </html>
