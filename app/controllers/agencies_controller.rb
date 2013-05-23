@@ -6,6 +6,9 @@ class AgenciesController < ApplicationController
   def create
   end
 
+  def index
+  end
+
   def show
     @agency = Agency.find(params[:id])
   end

@@ -126,3 +126,10 @@ ul.user-info li {
   display: inline;
   padding: 10px;
 }
+
+div.search {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0 5px 20px 20px;
+  margin: 0 auto;
+}

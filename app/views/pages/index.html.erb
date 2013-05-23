@@ -1,20 +1,29 @@
-<div class="resource-list">
-  <h3>Hello World! Lookin' for some resources?</h3>
-  <p>
-  Well, this is tentatively where they will be eventually.<br/>
-  However, they will more than likely look like Lorem Ipsum text for a while.<br/>
-  Sorry.
-  </p>
+<div class="search">
+  <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
+  <%= form_tag('/agency/index', :method => 'get') do %>
+    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+    <%= submit_tag "Search", :name => nil %>
+    <p>Sort search results by:</p>
+    <% if current_user.agency_id != nil %>
+      <%= radio_button_tag(:rating, "in_house") %>
+      <%= label_tag(:rating_in_house, "In-House Rating") %><br />
+    <% end %>
+    <%= radio_button_tag(:rating, "out_of_house") %>
+    <%= label_tag(:rating_out_of_house, "Overall Rating") %>
+  <% end %>
+</div>
 
-<% @agencies.each do |agency| %>
-  <div class="agency">
-    <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
-    <p id="rating">In-house rating: <%= agency.in_house %> Overall rating: <%= agency.out_of_house %></p>
-    <p id="address"><%= agency.street %>, <%= agency.city %>, <%= agency.state %></p>
-    <p id="phone"><%= agency.phone %></p>
-    <p id="short-description"><%= agency.short_description %></p>
-    <p id="long-description"><%= agency.long_description %></p>
-  </div>
-<% end %>
+<div class="resource-list">
+
+  <% @agencies.each do |agency| %>
+    <div class="agency">
+      <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
+      <p id="rating">In-house rating: <%= agency.in_house %> Overall rating: <%= agency.out_of_house %></p>
+      <p id="address"><%= agency.street %>, <%= agency.city %>, <%= agency.state %></p>
+      <p id="phone"><%= agency.phone %></p>
+      <p id="short-description"><%= agency.short_description %></p>
+      <p id="long-description"><%= agency.long_description %></p>
+    </div>
+  <% end %>
 
 </div>

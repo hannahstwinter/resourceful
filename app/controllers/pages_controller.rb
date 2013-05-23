@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
 
   def index
+    # if search
+    #   @agencies = find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    # else
+    #   @agencies = Agency.order("out_of_house DESC").limit(5)
+    # end
+
     @agencies = Agency.order("out_of_house DESC").limit(5)
     @slogan = [ 'your source for resource',
                 'where people and resources meet',
