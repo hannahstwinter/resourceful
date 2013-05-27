@@ -7,6 +7,11 @@ class AgenciesController < ApplicationController
   end
 
   def index
+    # if search
+    #   @agencies = Agency.search #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    # else
+    #   @agencies = Agency.order("out_of_house DESC").limit(5)
+    # end
   end
 
   def show

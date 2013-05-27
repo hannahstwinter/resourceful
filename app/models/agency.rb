@@ -3,9 +3,9 @@ class Agency < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      @agencies = find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
-      find(:all)
+      @agencies = Agency.order("out_of_house DESC").limit(5)
     end
   end
 

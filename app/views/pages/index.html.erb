@@ -9,7 +9,9 @@
       <%= label_tag(:rating_in_house, "In-House Rating") %><br />
     <% end %>
     <%= radio_button_tag(:rating, "out_of_house") %>
-    <%= label_tag(:rating_out_of_house, "Overall Rating") %>
+    <%= label_tag(:rating_out_of_house, "Overall Rating") %><br />
+    <%= radio_button_tag(:rating, "client_rating") %>
+    <%= label_tag(:rating_out_of_house, "Client Rating") %>
   <% end %>
 </div>
 
