@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    @agencies = Agency.search(params[:search])
+    @agencies = Agency.search(params[:search], params[:rating])
     # if search
     #   @agencies = Agency.search #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     # else
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
                 ].sample
 
     if current_user && current_user.agency_id != nil
-      @agency = Agency.find(current_user.agency_id)
+      @user_agency = Agency.find(current_user.agency_id)
     end
   end
 

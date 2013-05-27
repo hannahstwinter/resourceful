@@ -1,8 +1,8 @@
 <div class="search">
   <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
-  <%= form_tag('/agency/index', :method => 'get') do %>
+  <%= form_tag('/pages', :method => 'get') do %>
     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-    <%= submit_tag "Search", :name => nil %>
+
     <p>Sort search results by:</p>
     <% if current_user.agency_id != nil %>
       <%= radio_button_tag(:rating, "in_house") %>
@@ -11,7 +11,8 @@
     <%= radio_button_tag(:rating, "out_of_house") %>
     <%= label_tag(:rating_out_of_house, "Overall Rating") %><br />
     <%= radio_button_tag(:rating, "client_rating") %>
-    <%= label_tag(:rating_out_of_house, "Client Rating") %>
+    <%= label_tag(:rating_out_of_house, "Client Rating") %><br /><br />
+    <%= submit_tag "Search", :name => nil %>
   <% end %>
 </div>
 
