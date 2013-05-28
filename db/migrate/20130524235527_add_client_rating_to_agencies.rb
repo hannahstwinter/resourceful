@@ -1,5 +1,4 @@
 class AddClientRatingToAgencies < ActiveRecord::Migration
-
   def up
     add_column :agencies, :client_rating, :integer
   end
@@ -7,5 +6,4 @@ class AddClientRatingToAgencies < ActiveRecord::Migration
   def down
     remove_column :agencies, :client_rating
   end
-
 end

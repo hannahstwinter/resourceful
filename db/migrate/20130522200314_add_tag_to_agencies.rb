@@ -8,5 +8,4 @@ class AddTagToAgencies < ActiveRecord::Migration
   def down
     remove_column :agencies, :tag
   end
-
 end
