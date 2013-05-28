@@ -16,6 +16,9 @@ Resourceful::Application.routes.draw do
 
   match "user/:id" => "users#show"
 
+  get "/contact/:id" => "contacts#new", :as => :contact
+  post "contact" => "contacts#create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

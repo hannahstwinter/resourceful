@@ -23,6 +23,9 @@
       <p>
         <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
       </p>
+      <% if current_user %>
+        <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s %>
+      <% end %>
       <dl class="tags">
         <dt>Tags:</dt>
         <% agency.tag.split(",").each do |tag| %>
