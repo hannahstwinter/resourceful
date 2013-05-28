@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528013952) do
+ActiveRecord::Schema.define(:version => 20130528181033) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -25,8 +25,18 @@ ActiveRecord::Schema.define(:version => 20130528013952) do
     t.datetime "updated_at",        :null => false
     t.text     "tag"
     t.integer  "client_rating"
-    t.integer  "in_house_rating_rating"
+    t.integer  "in_house_rating"
     t.integer  "overall_rating"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "agency_id"
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.string   "phone"
   end
 
   create_table "users", :force => true do |t|
@@ -36,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20130528013952) do
     t.integer  "agency_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "agency_id"
+    t.integer  "user_agency_id"
+    t.integer  "vote"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
