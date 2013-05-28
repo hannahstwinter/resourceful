@@ -178,3 +178,15 @@ p.user {
   padding: 0px 20px 20px 20px;
   margin: 0 auto;
 }
+
+div.contact {
+  font-family: arial,sans serif;
+  background-color: #cad5df;
+  margin: 20px;
+  padding: 10px 25px 10px 25px;
+  width: 75%;
+}
+
+p#contact-name {
+  font-weight: bold;
+}

@@ -57,7 +57,7 @@ require 'faker'
 #   name = Faker::Name.name
 #   phone = Faker::PhoneNumber.phone_number
 #   text = Faker::Lorem.paragraph
-#   agency_id = rand(25) + 1
+#   agency_id = rand(25) + 75
 
 #   Contact.create(:user_id => 3,
 #                  :agency_id => agency_id,
