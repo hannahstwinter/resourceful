@@ -14,6 +14,8 @@ Resourceful::Application.routes.draw do
 
   get "about" => "about#index"
 
+  match "user/:id" => "users#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

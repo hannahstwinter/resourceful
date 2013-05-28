@@ -1,19 +1,19 @@
 class Agency < ActiveRecord::Base
-  attr_accessible :city, :in_house, :long_description, :name, :out_of_house, :phone, :short_description, :state, :street, :tag
+  attr_accessible :city, :in_house_rating, :long_description, :name, :overall_rating, :client_rating, :phone, :short_description, :state, :street, :tag
 
   def self.search(search, rating)
     if search
-      if rating == "in_house"
-        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('in_house DESC')
-      elsif rating == "out_of_house"
-        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('out_of_house DESC')
-      elsif rating == "client"
-        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('client DESC')
+      if rating == "in_house_rating"
+        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('in_house_rating DESC')
+      elsif rating == "overall_rating"
+        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('overall_rating DESC')
+      elsif rating == "client_rating"
+        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%").order('client_rating DESC')
       else
         @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
       end
     else
-      @agencies = Agency.order("out_of_house DESC").limit(5)
+      @agencies = Agency.order("overall_rating DESC").limit(5)
     end
   end
 

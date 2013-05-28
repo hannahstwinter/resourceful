@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130528013952) do
     t.datetime "updated_at",        :null => false
     t.text     "tag"
     t.integer  "client_rating"
-    t.integer  "in_house_rating"
+    t.integer  "in_house_rating_rating"
     t.integer  "overall_rating"
   end
 
