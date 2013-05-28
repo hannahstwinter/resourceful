@@ -8,7 +8,7 @@ one:
   phone: MyString
   short_description: MyText
   long_description: MyText
-  in_house: 1
+  in_house_rating: 1
   out_of_house: 1
 
 two:
@@ -19,5 +19,5 @@ two:
   phone: MyString
   short_description: MyText
   long_description: MyText
-  in_house: 1
+  in_house_rating: 1
   out_of_house: 1

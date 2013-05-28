@@ -1,3 +1,19 @@
 <div class="agency">
   <p id="agency-name"><%= @agency.name %></p>
+  <dl class="tags">
+    <dt>Tags:</dt>
+    <% @agency.tag.split(",").each do |tag| %>
+    <dd><%= tag %></dd>
+    <% end %>
+  </dl>
+  <p id="rating">
+    In-house rating: <%= @agency.in_house_rating %><br />
+    Overall rating: <%= @agency.overall_rating %><br />
+    Client rating: <%= @agency.client_rating %>
+  </p>
+  <p id="short-description"><%= @agency.short_description %></p>
+  <p id="phone">Phone: <%= @agency.phone %></p>
+  <p id="address"><%= @agency.street %><br />
+  <%= @agency.city %>, <%= @agency.state %></p>
+  <p id="long-description"><%= @agency.long_description %></p>
 </div>

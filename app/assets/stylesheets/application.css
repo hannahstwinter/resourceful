@@ -73,7 +73,7 @@ div.resource-list {
   font-family: arial,sans serif;
   color: #282528;
   width: 100%;
-  padding: 0 5px 5px 20px;
+  padding: 0 5px 5px 0;
   margin: 0 auto;
 }
 
@@ -125,4 +125,56 @@ ul.user-info {
 ul.user-info li {
   display: inline;
   padding: 10px;
+}
+
+div.search {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0 5px 20px 20px;
+  margin: 0 auto;
+}
+
+p#about {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0px 20px 20px 20px;
+  margin: 0 auto;
+}
+
+dl.tags {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  float: right;
+}
+
+dl.tags dt {
+  padding: 4px;
+}
+
+dl.tags dd {
+  padding: 2px;
+  margin-left: 15px;
+}
+
+div.agency {
+  background-color: #cad5df;
+  margin: 20px;
+  padding: 10px 25px 10px 25px;
+  width: 75%;
+}
+
+p#phone {
+  margin: 0;
+}
+
+p#agency-name {
+  font-weight: bold;
+}
+
+p.user {
+  font-family: arial,sans serif;
+  color: #282528;
+  padding: 0px 20px 20px 20px;
+  margin: 0 auto;
 }

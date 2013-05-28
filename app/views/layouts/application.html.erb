@@ -12,7 +12,7 @@
 
   <ul class="page-nav">
     <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', '.about' %></li>
+    <li><%= link_to 'About', about_path %></li>
     <li><%= link_to 'Mission', root_path %></li>
     <li><%= link_to 'Contact', root_path %></li>
     <li><%= link_to 'Signup', signup_path %></li>
@@ -25,7 +25,7 @@
 
   <div class="resourceful">
     <p class="welcome">Welcome to Resourceful</p>
-    <p class="slogan"><%= @slogan %></p>
+    <p class="slogan">where people and resources meet</p>
   </div>
 
 </div>
@@ -34,10 +34,10 @@
   <% if current_user %>
     <ul class="user-info">
       <li>Welcome, <%= current_user.name %></li>
-      <% if @agency %>
-        <li><%= @agency %></li>
+      <% if current_user.agency_id != nil %>
+        <li><%= current_user %></li>
       <% end %>
-      <li><%= link_to 'User Page', root_path %></li>
+      <li><%= link_to 'User Page', "user/" + current_user.id.to_s %></li>
     </ul>
   <% end %>
 </div>
