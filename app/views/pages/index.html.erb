@@ -1,20 +1,43 @@
-<div class="resource-list">
-  <h3>Hello World! Lookin' for some resources?</h3>
-  <p>
-  Well, this is tentatively where they will be eventually.<br/>
-  However, they will more than likely look like Lorem Ipsum text for a while.<br/>
-  Sorry.
-  </p>
+<div class="search">
+  <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
+  <%= form_tag('/pages', :method => 'get') do %>
+    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
 
-<% @agencies.each do |agency| %>
-  <div class="agency">
-    <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
-    <p id="rating">In-house rating: <%= agency.in_house %> Overall rating: <%= agency.out_of_house %></p>
-    <p id="address"><%= agency.street %>, <%= agency.city %>, <%= agency.state %></p>
-    <p id="phone"><%= agency.phone %></p>
-    <p id="short-description"><%= agency.short_description %></p>
-    <p id="long-description"><%= agency.long_description %></p>
-  </div>
-<% end %>
+    <p>Sort search results by:</p>
+    <% if current_user && current_user.agency_id != nil %>
+      <%= radio_button_tag(:rating, "in_house_rating") %>
+      <%= label_tag(:in_house_rating, "In-House Rating") %><br />
+    <% end %>
+    <%= radio_button_tag(:rating, "overall_rating") %>
+    <%= label_tag(:overall_rating, "Overall Rating") %><br />
+    <%= radio_button_tag(:rating, "client_rating") %>
+    <%= label_tag(:client_rating, "Client Rating") %><br /><br />
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
+
+<div class="resource-list">
+
+  <% @agencies.each do |agency| %>
+    <div class="agency">
+      <p>
+        <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
+      </p>
+      <dl class="tags">
+        <dt>Tags:</dt>
+        <% agency.tag.split(",").each do |tag| %>
+        <dd><%= tag %></dd>
+        <% end %>
+      </dl>
+      <p id="rating">
+      In-house rating: <%= agency.in_house_rating %><br />
+      Overall rating: <%= agency.overall_rating %><br />
+      Client rating: <%= agency.client_rating %></p>
+      <p id="short-description"><%= agency.short_description %></p>
+      <p id="phone">Phone: <%= agency.phone %></p>
+      <p id="address"><%= agency.street %><br />
+      <%= agency.city %>, <%= agency.state %></p>
+    </div>
+  <% end %>
 
 </div>

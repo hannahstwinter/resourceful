@@ -12,4 +12,8 @@ class UsersController < ApplicationController
   def create
   end
 
+  def show
+    # LOOK INTO CANCAN
+  end
+
 end

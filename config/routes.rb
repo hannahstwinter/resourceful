@@ -1,5 +1,6 @@
 Resourceful::Application.routes.draw do
   root :to => "pages#index"
+  resources :pages
 
   get "signup" => "signups#new", :as => :signup
   post "signup" => "signups#create"
@@ -8,7 +9,12 @@ Resourceful::Application.routes.draw do
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy", :as => :signout
 
+  resources :agencies
   match "agency/:id" => "agencies#show"
+
+  get "about" => "about#index"
+
+  match "user/:id" => "users#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

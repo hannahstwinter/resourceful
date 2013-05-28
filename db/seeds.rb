@@ -9,6 +9,19 @@
 require 'rubygems'
 require 'faker'
 
+tag_array = [ 'children',
+              'substance abuse',
+              'alcoholism',
+              'ptsd',
+              'trauma',
+              'hospice',
+              'GLBTQ',
+              'employment',
+              'health-care',
+              'womens health',
+              'immigration services'
+              ]
+
 25.times do
   name = Faker::Company.name
   street = Faker::Address.street_address
@@ -17,21 +30,10 @@ require 'faker'
   phone = Faker::PhoneNumber.phone_number
   short_description = Faker::Lorem.sentence
   long_description = Faker::Lorem.paragraph
+  score = rand(25)
   score1 = rand(25)
   score2 = rand(25)
-  tag_array = [ 'children',
-                'substance abuse',
-                'alcoholism',
-                'ptsd',
-                'trauma',
-                'hospice',
-                'GLBTQ',
-                'employment',
-                'health-care',
-                'womens health',
-                'immigration services'
-                ].sample(3)
-
+  tags = tag_array.sample(3).join(",")
 
   agency = Agency.create( :name => name,
                           :street => street,
@@ -40,8 +42,9 @@ require 'faker'
                           :phone => phone,
                           :short_description => short_description,
                           :long_description => long_description,
-                          :in_house => score1,
-                          :out_of_house => score2,
-                          :tag => tag_array
+                          :in_house_rating => score,
+                          :overall_rating => score1,
+                          :client_rating => score2,
+                          :tag => tags
                           )
 end
