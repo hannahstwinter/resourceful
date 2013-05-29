@@ -37,7 +37,7 @@
       <% if current_user.agency_id != nil %>
         <li><%= current_user %></li>
       <% end %>
-      <li><%= link_to 'User Page', "user/" + current_user.id.to_s %></li>
+      <li><%= link_to_unless_current('User Page', { :controller => "users", :action => "show" }) %></li>
     </ul>
   <% end %>
 </div>
@@ -49,10 +49,6 @@
 </div>
 
 <%= yield %>
-
-<div class="about"></div>
-<div class="mission"></div>
-<div class="contact"></div>
 
 </body>
 </html>

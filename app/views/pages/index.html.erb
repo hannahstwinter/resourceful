@@ -1,28 +1,20 @@
-<div class="search">
-  <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
-  <%= form_tag('/pages', :method => 'get') do %>
-    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+<% if current_user %>
+  <div class="add-agency">
+    <%= link_to_unless_current "Add an Agency to Resourceful", new_agency_path %>
+  </div>
+<% end %>
 
-    <p>Sort search results by:</p>
-    <% if current_user && current_user.agency_id != nil %>
-      <%= radio_button_tag(:rating, "in_house_rating") %>
-      <%= label_tag(:in_house_rating, "In-House Rating") %><br />
-    <% end %>
-    <%= radio_button_tag(:rating, "overall_rating") %>
-    <%= label_tag(:overall_rating, "Overall Rating") %><br />
-    <%= radio_button_tag(:rating, "client_rating") %>
-    <%= label_tag(:client_rating, "Client Rating") %><br /><br />
-    <%= submit_tag "Search", :name => nil %>
-  <% end %>
-</div>
+<%= render "search" %>
 
 <div class="resource-list">
-
   <% @agencies.each do |agency| %>
     <div class="agency">
       <p>
         <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
       </p>
+      <% if current_user %>
+        <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s %>
+      <% end %>
       <dl class="tags">
         <dt>Tags:</dt>
         <% agency.tag.split(",").each do |tag| %>
@@ -39,5 +31,4 @@
       <%= agency.city %>, <%= agency.state %></p>
     </div>
   <% end %>
-
 </div>

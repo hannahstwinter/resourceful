@@ -4,7 +4,7 @@ class CreateVotes < ActiveRecord::Migration
       t.integer :user_id
       t.integer :agency_id
       t.integer :user_agency_id
-      t.integer :vote
+      t.integer :vote, :default => 0
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
 class Agency < ActiveRecord::Base
+  has_many :votes
   attr_accessible :city, :in_house_rating, :long_description, :name, :overall_rating, :client_rating, :phone, :short_description, :state, :street, :tag
 
   def self.search(search, rating)
