@@ -7,7 +7,7 @@ class SignupsController < ApplicationController
   def create
     user = User.new(params[:user])
     if user.save
-      flash[:notice] = "Welcome to Resourceful!"
+      flash[:notice] = "Thanks for signing up!"
       session[:user_id] = user.id
       redirect_to :root
     else
