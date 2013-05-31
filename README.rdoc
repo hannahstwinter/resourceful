@@ -7,3 +7,9 @@ The intended structuring of Resourceful is such that any user can access the inf
 There is a rating system for the agencies: in-house rating, overall rating, and client rating. The search results for agencies can be sorted according to one of these rating scales.
 
 Please, let me know if you have any ideas or recommendations to streamline this project! It will be live soon enough and will be in use, so any tips or ideas to keep things running smooth would be great. 
+
+You can visit the latest version of Resourceful here:
+
+http://morning-island-3194.herokuapp.com/
+
+Let me know if you break it!
