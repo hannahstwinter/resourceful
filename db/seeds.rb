@@ -9,7 +9,7 @@
 require 'rubygems'
 require 'faker'
 
-# Agency
+# # Agency
 
 # tag_array = [ 'children',
 #               'substance abuse',
@@ -51,7 +51,7 @@ require 'faker'
 #                           )
 # end
 
-# Contacts
+# # Contacts
 
 # 3.times do
 #   name = Faker::Name.name
@@ -67,7 +67,7 @@ require 'faker'
 #                 )
 # end
 
-# Votes
+# # Votes
 
 # 100.times do
 #   vote = rand(5) + 1
