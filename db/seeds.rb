@@ -53,13 +53,14 @@ require 'faker'
 
 # # Contacts
 
-# 3.times do
+# 35.times do
 #   name = Faker::Name.name
 #   phone = Faker::PhoneNumber.phone_number
 #   text = Faker::Lorem.paragraph
 #   agency_id = rand(25) + 75
+#   user_id = (23..30).to_a.sample
 
-#   Contact.create(:user_id => 3,
+#   Contact.create(:user_id => user_id,
 #                  :agency_id => agency_id,
 #                  :name => name,
 #                  :phone => phone,
@@ -67,11 +68,11 @@ require 'faker'
 #                 )
 # end
 
-# # Votes
+# # # Votes
 
 # 100.times do
 #   vote = rand(5) + 1
-#   user_id = rand(25) + 1
+#   user_id = (23..30).to_a.sample
 #   agency_id = rand(25) + 1
 #   user_agency_id = rand(25) + 1
 
@@ -81,3 +82,12 @@ require 'faker'
 #               :vote => vote
 #              )
 # end
+
+# User.create!(name: "Hannah Winter", email: "han@me.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "hannah@han.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@nah.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@han.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@awesome.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "hannah@hannah.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@hannah.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@hahaha.com", password: "hannah", agency_id: 3)
