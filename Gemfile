@@ -5,8 +5,25 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 
+group :test do
+  gem "shoulda-matchers"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'sqlite3-ruby'
+end
+
+group :production do
+  gem 'thin'
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

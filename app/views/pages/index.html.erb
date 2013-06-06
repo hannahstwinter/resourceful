@@ -10,7 +10,7 @@
   <% @agencies.each do |agency| %>
     <div class="agency">
       <p>
-        <a href="/agency/<%= agency.id %>" id="agency-name"><%= agency.name %></a>
+        <%= link_to agency.name, agency_path(:id => agency.id) %>
       </p>
       <% if current_user %>
         <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s %>
