@@ -10,9 +10,10 @@ Resourceful::Application.routes.draw do
   delete "signout" => "sessions#destroy", :as => :signout
 
   resources :agencies
-  match "agency/:id" => "agencies#show"
+  match "agency" => "agencies#show"
 
   get "about" => "about#index"
+
   get "share" => "share#index"
   # resources :users
   get "/users" => "users#show"

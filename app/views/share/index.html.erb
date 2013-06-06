@@ -1,4 +1,41 @@
-<p class="user">
-  This is where we share!<br/>
-  Build out form to share contact.
-</p>
+<div class="contact">
+  <h3>How to share your contact:</h3>
+  <ol class="instructions">
+    <li>Review and edit your contact's information.</li>
+    <li>Enter the email address of the person you wish to share it with.</li>
+    <li>Click send!</li>
+  </ol>
+  <%= form_tag("/mailer", :method => "post") do %>
+  <div class="field">
+    <%= label_tag("Contact Name") %><br />
+    <%= text_field_tag :name, @contact.name %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Agency") %><br />
+    <%= text_field_tag :agency, @agency.name %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Agency Description") %><br />
+    <%= text_area_tag :notes, @agency.short_description, :size => "35x3" %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Phone") %><br />
+    <%= text_field_tag :phone, @contact.phone %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Notes") %><br />
+    <%= text_area_tag :notes, @contact.notes, :size => "35x6" %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Additional notes") %><br />
+    <%= text_area_tag :add_notes, @note, :size => "35x6" %><br />
+  </div>
+  <div class="field">
+    <%= label_tag("Email Contact To:") %><br />
+    <%= text_field_tag :email %><br />
+  </div>
+  <div class="actions">
+    <%= submit_tag("Send Contact") %>
+  </div>
+  <% end %>
+</div>
