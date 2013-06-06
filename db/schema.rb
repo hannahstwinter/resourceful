@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(:version => 20130528181033) do
     t.integer  "user_id"
     t.integer  "agency_id"
     t.integer  "user_agency_id"
-    t.integer  "vote"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "vote",           :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
