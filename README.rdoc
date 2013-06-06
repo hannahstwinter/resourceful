@@ -12,4 +12,4 @@ You can visit the latest version of Resourceful here:
 
 http://morning-island-3194.herokuapp.com/
 
-Let me know if you break it!
+Please submit an issue if something seems awry! Thanks for checking out Resourceful!
