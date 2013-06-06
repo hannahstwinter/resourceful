@@ -13,7 +13,7 @@ Resourceful::Application.routes.draw do
   match "agency/:id" => "agencies#show"
 
   get "about" => "about#index"
-
+  get "share" => "share#index"
   # resources :users
   get "/users" => "users#show"
 

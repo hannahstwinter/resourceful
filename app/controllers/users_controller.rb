@@ -1,17 +1,5 @@
 class UsersController < ApplicationController
 
-  def new
-    if @user = User.create(params[:user])
-      # success
-      redirect_to :root
-    else
-      # error handling
-    end
-  end
-
-  def create
-  end
-
   def show
     @contacts = Contact.where("user_id = ?", current_user.id)
     @agencies = []

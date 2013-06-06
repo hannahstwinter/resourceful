@@ -1,7 +1,7 @@
 class SignupsController < ApplicationController
 
   def new
-    @user = User.create(params[:user])
+    @user = User.new
   end
 
   def create
