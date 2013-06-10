@@ -7,9 +7,15 @@ class Mailer < ActionMailer::Base
     mail(:to => @user.email, :subject => "Welcome to Resourceful")
   end
 
-  def contact_email(contact)
-    @contact = contact
-    @user = current_user.id
+  def contact_email(email)
+    @name = email[:name]
+    @agency = email[:agency]
+    @agency_desc = email[:agency_desc]
+    @phone = email[:phone]
+    @notes = email[:notes]
+    @additional_notes = email[:additional_notes]
+    @user = email[:user]
+    mail(:to => email[:recipient], :subject => "Shared Contact from Resourceful")
   end
 
 end
