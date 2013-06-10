@@ -1,20 +1,38 @@
-<div class="add-agency">
+<div class="agency">
+  <p>
   <%= form_for :agency, :url => {:action => "create"} do |f| %>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />
-    <%= f.label :street %><br />
-    <%= f.text_field :street %><br />
-    <%= f.label :city %><br />
-    <%= f.text_field :city %><br />
-    <%= f.label :state %><br />
-    <%= f.text_field :state %><br />
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %><br />
-    <%= f.label :short_description %><br />
-    <%= f.text_area :short_description, :size => "24x6" %><br />
-    <%= f.label :tag %>s, separated by commas<br />
-    (eg: childcare,GLBTQ,alcoholism)<br />
-    <%= f.text_field :tag %><br />
-    <%= f.submit %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %><br />
+    </div>
+    <div class="field">
+      <%= f.label :street %><br />
+      <%= f.text_field :street %><br />
+    </div>
+    <div class="field">
+      <%= f.label :city %><br />
+      <%= f.text_field :city %><br />
+    </div>
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.text_field :state %><br />
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone %><br />
+    </div>
+    <div class="field">
+      <%= f.label :short_description %><br />
+      <%= f.text_area :short_description, :size => "24x6" %><br />
+    </div>
+    <div class="field">
+      <%= f.label :tag %>s, separated by commas<br />
+      (eg: childcare,GLBTQ,alcoholism)<br />
+      <%= f.text_field :tag %><br />
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+</p>
   <% end %>
 </div>
