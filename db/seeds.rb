@@ -68,7 +68,7 @@ require 'faker'
 #                 )
 # end
 
-# # # Votes
+# # Votes
 
 # 100.times do
 #   vote = rand(5) + 1

@@ -14,13 +14,13 @@
 
 body {
   margin: 0 auto;
-  background-color: #f5f5f5;
+  background-color: #ECF0F1;
 }
 
 ul.page-nav {
   margin: 0;
   padding: 5px 0 5px 0;
-  background-color: #6699aa;
+  background-color: #16A085; /*#1ABC9C;*/ /*#6699aa;*/
   list-style-type: none;
 }
 
@@ -35,7 +35,7 @@ ul.page-nav li.current-user-page-nav {
 
 div.page-head {
   margin: 0 auto;
-  background-color: #aacccc;
+  background-color: #ECF0F1; /*#BDC3C7;*/ /*#aacccc;*/
   width: 100%;
   height: 150px;
 }
@@ -50,7 +50,7 @@ div.resourceful p.welcome {
   font-family: helvetica;
   font-size: 55px;
   font-weight: bold;
-  color: #282528;
+  color: #2C3E50; /*#2C3E50;*/
   text-align: center;
 }
 
@@ -59,7 +59,7 @@ div.resourceful p.slogan {
   font-family: helvetica;
   font-size: 22px;
   font-weight: bold;
-  color: #282528;
+  color: #2C3E50;
   text-align: right;
 }
 
@@ -67,50 +67,64 @@ a {
   text-decoration: none;
   font-family: arial,sans serif;
   font-weight: bold;
+  color: #2980B9;
+}
+
+a:hover {
+  color: #3498DB;
+}
+
+a:visited {
+  color: #8E44AD;
 }
 
 div.resource-list {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   width: 100%;
   padding: 0 5px 5px 0;
   margin: 0 auto;
 }
 
-div.flash-notice {
+div#notices {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   width: 95%;
   margin: 0 auto;
+  background-color: #E67E22;
 }
 
 div.current-user {
   margin: 0 auto;
   padding: 5px 5px 5px 20px;
-  background-color: #dcdcdc;
+  background-color: #2C3E50; /*#dcdcdc;*/
   font-family: arial,sans serif;
   font-weight: bold;
-  color: #282528;
+  color: #ECF0F1;
 }
 
 div.agency {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   width: 100%;
   padding: 0 5px 5px 20px;
   margin: 0 auto;
+  background-color: #BDC3C7;
+  margin: 20px;
+  padding: 10px 25px 10px 25px;
+  width: 75%;
 }
 
 #new_user {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0 5px 5px 20px;
   margin: 0 auto;
 }
 
 #signin {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0 5px 5px 20px;
   margin: 0 auto;
 }
@@ -128,14 +142,14 @@ ul.user-info li {
 
 div.search {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0 5px 20px 20px;
   margin: 0 auto;
 }
 
 p#about {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0px 20px 20px 20px;
   margin: 0 auto;
 }
@@ -156,13 +170,6 @@ dl.tags dd {
   margin-left: 15px;
 }
 
-div.agency {
-  background-color: #cad5df;
-  margin: 20px;
-  padding: 10px 25px 10px 25px;
-  width: 75%;
-}
-
 p#phone {
   margin: 0;
 }
@@ -173,7 +180,7 @@ p#agency-name {
 
 p.user {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0px 20px 20px 20px;
   margin: 0 auto;
 }
@@ -192,7 +199,7 @@ p#contact-name {
 
 div.add-agency {
   font-family: arial,sans serif;
-  color: #282528;
+  color: #2C3E50;
   padding: 0px 20px 20px 20px;
   margin: 0 auto;
 }

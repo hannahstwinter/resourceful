@@ -5,6 +5,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <% if flash[:notice] %>
+  <script language='javascript'>
+    $(document).ready(function() {
+      <%= fading_flash_notice %>
+    });
+  </script>
+  <% end %>
 </head>
 <body>
 
@@ -14,7 +21,7 @@
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About', about_path %></li>
     <li><%= link_to 'Mission', root_path %></li>
-    <li><%= link_to 'Contact', root_path %></li>
+    <li><%= link_to 'Email', email_path %></li>
     <li><%= link_to 'Signup', signup_path %></li>
     <% if current_user %>
       <li class="current-user-page-nav"><%= link_to 'Signout', signout_path, :method => :delete %></li>
@@ -42,10 +49,7 @@
   <% end %>
 </div>
 
-<div class="flash-notice">
-  <% if flash %>
-    <h3 class="flash"><%= flash[:notice] %></h3>
-  <% end %>
+<div id="notices">
 </div>
 
 <%= yield %>
