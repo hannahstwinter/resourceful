@@ -1,17 +1,11 @@
-<% if current_user %>
-  <div class="add-agency">
-    <%= link_to_unless_current "Add an Agency to Resourceful", new_agency_path %>
-  </div>
-<% end %>
-
-<p class="user">
-Hide 'User Page' link while on 'User Page'.<br /><br />
-Functionality:<br /><br />
-User authentication with CanCan (?)<br />
-Forms to rate and review agencies<br />
-
-</p>
-
+<div id="user">
+  <p>
+  Hide 'User Page' link while on 'User Page'.<br /><br />
+  Functionality:<br /><br />
+  User authentication with CanCan (?)<br />
+  Forms to rate and review agencies
+  </p>
+</div>
 <% @contact_list.each do |contact, agency| %>
   <div class="agency contact">
     <p id="contact-name"><%= contact.name %></p>

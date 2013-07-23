@@ -20,17 +20,13 @@ body {
 ul.page-nav {
   margin: 0;
   padding: 5px 0 5px 0;
-  background-color: #16A085; /*#1ABC9C;*/ /*#6699aa;*/
+  background-color: #16A085;
   list-style-type: none;
 }
 
 ul.page-nav li {
   display: inline;
   padding: 10px;
-}
-
-ul.page-nav li.current-user-page-nav {
-  /* try to position to right of top nav */
 }
 
 div.page-head {
@@ -50,7 +46,7 @@ div.resourceful p.welcome {
   font-family: helvetica;
   font-size: 55px;
   font-weight: bold;
-  color: #2C3E50; /*#2C3E50;*/
+  color: #34495E;
   text-align: center;
 }
 
@@ -59,7 +55,7 @@ div.resourceful p.slogan {
   font-family: helvetica;
   font-size: 22px;
   font-weight: bold;
-  color: #2C3E50;
+  color: #34495E;
   text-align: right;
 }
 
@@ -97,7 +93,7 @@ div#notices {
 div.current-user {
   margin: 0 auto;
   padding: 5px 5px 5px 20px;
-  background-color: #2C3E50; /*#dcdcdc;*/
+  background-color: #34495E; /*#dcdcdc;*/
   font-family: arial,sans serif;
   font-weight: bold;
   color: #ECF0F1;
@@ -109,7 +105,7 @@ div.agency {
   width: 100%;
   padding: 0 5px 5px 20px;
   margin: 0 auto;
-  background-color: #BDC3C7;
+  background-color: #95A5A6;
   margin: 20px;
   padding: 10px 25px 10px 25px;
   width: 75%;
@@ -147,10 +143,34 @@ div.search {
   margin: 0 auto;
 }
 
-p#about {
+div#signup {
+  padding: 20px 5px 20px 20px;
+  margin: 0 auto;
+}
+
+div#signin {
+  padding: 20px 5px 20px 20px;
+  margin: 0 auto;
+}
+
+div#about {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 5px 20px 20px;
+  margin: 0 auto;
+}
+
+div#email {
+  font-family: arial,sans serif;
+  color: #2C3E50;
+  padding: 0px 5px 20px 20px;
+  margin: 0 auto;
+}
+
+div#user {
+  font-family: arial,sans serif;
+  color: #2C3E50;
+  padding: 0px 5px 20px 20px;
   margin: 0 auto;
 }
 
@@ -200,7 +220,7 @@ p#contact-name {
 div.add-agency {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 0px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   margin: 0 auto;
 }
 

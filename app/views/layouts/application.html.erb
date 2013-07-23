@@ -20,13 +20,14 @@
   <ul class="page-nav">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Mission', root_path %></li>
     <li><%= link_to 'Email', email_path %></li>
-    <li><%= link_to 'Signup', signup_path %></li>
+
     <% if current_user %>
-      <li class="current-user-page-nav"><%= link_to 'Signout', signout_path, :method => :delete %></li>
+      <li><%= link_to('User Page', { :controller => "users", :action => "show" }) %></li>
+      <li ><%= link_to 'Signout', signout_path, :method => :delete %></li>
     <% else %>
-      <li class="current-user-page-nav"><%= link_to 'Signin', signin_path %></li>
+      <li><%= link_to 'Signup', signup_path %></li>
+      <li><%= link_to 'Signin', signin_path %></li>
     <% end %>
   </ul>
 
@@ -42,9 +43,9 @@
     <ul class="user-info">
       <li>Welcome, <%= current_user.name %></li>
       <% if current_user.agency_id != nil %>
-        <li><%= current_user %></li>
+        <li><%= current_user.agency.name %></li>
       <% end %>
-      <li><%= link_to_unless_current('User Page', { :controller => "users", :action => "show" }) %></li>
+      <li><%= link_to_unless_current "Add an Agency", new_agency_path %></li>
     </ul>
   <% end %>
 </div>
