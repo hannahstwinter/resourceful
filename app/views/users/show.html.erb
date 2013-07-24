@@ -1,4 +1,4 @@
-<div id="user">
+<div id="no-bkg">
   <p>
   Yay! The User Page!<br/ >
   User authentication with CanCan (?)<br />
@@ -7,8 +7,8 @@
   <p>My contacts:</p>
 </div>
 <% @contact_list.each do |contact, agency| %>
-  <div class="agency">
-    <p id="contact-name"><%= contact.name %></p>
+  <div id="bkg">
+    <p id="name"><%= contact.name %></p>
       <dl class="tags">
         <dt>Agency tags:</dt>
         <% agency.tag.split(",").each do |tag| %>

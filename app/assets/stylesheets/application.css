@@ -31,7 +31,7 @@ ul.page-nav li {
 
 div.page-head {
   margin: 0 auto;
-  background-color: #ECF0F1; /*#BDC3C7;*/ /*#aacccc;*/
+  background-color: #ECF0F1;
   width: 100%;
   height: 150px;
 }
@@ -74,57 +74,13 @@ a:visited {
   color: #8E44AD;
 }
 
-div.resource-list {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  width: 100%;
-  padding: 0 5px 5px 0;
-  margin: 0 auto;
-}
-
-div#notices {
-  font-family: arial,sans serif;
-  font-size: 25;
-  font-weight: bold;
-  color: #2C3E50;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #E67E22;
-}
-
 div.current-user {
   margin: 0 auto;
   padding: 5px 5px 5px 20px;
-  background-color: #34495E; /*#dcdcdc;*/
+  background-color: #34495E;
   font-family: arial,sans serif;
   font-weight: bold;
   color: #ECF0F1;
-}
-
-div.agency {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  width: 100%;
-  padding: 0 5px 5px 20px;
-  margin: 0 auto;
-  background-color: #95A5A6;
-  margin: 20px;
-  padding: 10px 25px 10px 25px;
-  width: 75%;
-}
-
-#new_user {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0 5px 5px 20px;
-  margin: 0 auto;
-}
-
-#signin {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0 5px 5px 20px;
-  margin: 0 auto;
 }
 
 ul.user-info {
@@ -138,48 +94,40 @@ ul.user-info li {
   padding: 10px;
 }
 
-div.search {
+div#notices {
+  font-family: arial,sans serif;
+  font-size: 25;
+  font-weight: bold;
+  color: #2C3E50;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #E67E22;
+}
+
+div#no-bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 0 5px 20px 20px;
+  padding: 0px 5px 5px 20px;
   margin: 0 auto;
 }
 
-div#signup {
-  padding: 20px 5px 20px 20px;
-  margin: 0 auto;
+div#no-bkg.form {
+  padding: 20px 5px 5px 20px;
 }
 
-div#signin {
-  padding: 20px 5px 20px 20px;
-  margin: 0 auto;
-}
-
-div#about {
+div#bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 0px 5px 20px 20px;
-  margin: 0 auto;
-}
-
-div#email {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0px 5px 20px 20px;
-  margin: 0 auto;
-}
-
-div#user {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0px 5px 20px 20px;
-  margin: 0 auto;
+  padding: 10px 30px 15px 30px;
+  background-color: #95A5A6;
+  margin: 20px;
+  width: 75%;
 }
 
 div#label {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 0px 0px 0px 20px;
+  padding: 0 0 0 20px;
   margin: 0 auto;
 }
 
@@ -203,7 +151,7 @@ p#phone {
   margin: 0;
 }
 
-p#agency-name {
+p#name {
   font-weight: bold;
 }
 
@@ -214,25 +162,6 @@ p.user {
   margin: 0 auto;
 }
 
-div.contact {
-  font-family: arial,sans serif;
-  background-color: #cad5df;
-  margin: 20px;
-  padding: 10px 25px 10px 25px;
-  width: 75%;
-}
-
-p#contact-name {
-  font-weight: bold;
-}
-
-div.add-agency {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 20px 20px 20px 20px;
-  margin: 0 auto;
-}
-
 .actions {
-  margin:12px 0 12px 0;
+  margin: 12px 0 15px 0;
 }

@@ -5,15 +5,18 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path
+    elsif user && !user.authenticate(params[:password])
+      flash[:notice] = "Invalid password."
+      redirect_to signin_path
     else
-      flash[:notice] = "Invalid email of password"
-      redirect_to root_path
+      flash[:notice] = "Invalid email address."
+      redirect_to signin_path
     end
   end
 
   def destroy
     session.clear
-    flash[:notice] = "Logged out!"
+    flash[:notice] = "You have been successfully logged out!"
     redirect_to root_path
   end
 

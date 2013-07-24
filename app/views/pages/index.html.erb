@@ -1,9 +1,8 @@
-
 <%= render "search" %>
 
 <div class="resource-list">
   <% @agencies.each do |agency| %>
-    <div class="agency">
+    <div id="bkg">
       <p>
         <%= link_to agency.name, agency_path(:id => agency.id) %>
       </p>

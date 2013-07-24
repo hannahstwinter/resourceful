@@ -7,10 +7,10 @@ class AgenciesController < ApplicationController
   def create
     agency = Agency.new(params[:agency])
     if agency.save
-      flash[:notice] = "Agency added"
+      flash[:notice] = "Agency added!"
       redirect_to root_url
     else
-      flash[:notice] = "Sorry, but there was an error in adding this agency"
+      flash[:notice] = "Sorry, but there was an error in adding the agency information."
       redirect_to root_url
     end
   end

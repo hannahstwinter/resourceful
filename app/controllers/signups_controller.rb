@@ -12,7 +12,7 @@ class SignupsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      flash[:notice] = "Invalid signup, please try again"
+      flash[:notice] = "Invalid signup, please try again."
       redirect_to signup_url
     end
   end
