@@ -63,16 +63,16 @@ a {
   text-decoration: none;
   font-family: arial,sans serif;
   font-weight: bold;
-  color: #2980B9;
+  color: #9b59b6;
 }
 
 a:hover {
-  color: #3498DB;
+  color: #8e44ad;
 }
 
-a:visited {
+/*:visited {
   color: #8E44AD;
-}
+}*/
 
 div.current-user {
   margin: 0 auto;
@@ -93,6 +93,13 @@ ul.user-info li {
   display: inline;
   padding: 10px;
 }
+
+/*li.last {
+  float: right;
+  position: relative;
+}
+How to center vertically?
+*/
 
 div#notices {
   font-family: arial,sans serif;

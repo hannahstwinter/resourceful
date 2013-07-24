@@ -24,10 +24,10 @@
 
     <% if current_user %>
       <li><%= link_to('User Page', { :controller => "users", :action => "show" }) %></li>
-      <li ><%= link_to 'Signout', signout_path, :method => :delete %></li>
+      <li class="last"><%= link_to 'Signout', signout_path, :method => :delete %></li>
     <% else %>
-      <li><%= link_to 'Signup', signup_path %></li>
-      <li><%= link_to 'Signin', signin_path %></li>
+      <li class="last"><%= link_to 'Signup', signup_path %></li>
+      <li class="last"><%= link_to 'Signin', signin_path %></li>
     <% end %>
   </ul>
 
