@@ -2,28 +2,28 @@
 
 <div class="resource-list">
   <% @agencies.each do |agency| %>
-    <div id="bkg">
+    <div id="bkg" class="list">
       <div id="color">
         <p><%= link_to agency.name, agency_path(:id => agency.id) %></p>
       </div>
       <div id="bkg" class="main">
-        <% if current_user %>
-          <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s %>
-        <% end %>
         <dl class="tags">
-          <dt>Agency tags:</dt>
+          <dt>Agency Tags:</dt>
           <% agency.tag.split(",").each do |tag| %>
-          <dd><%= tag %></dd>
+            <dd><%= tag %></dd>
           <% end %>
         </dl>
         <p id="rating">
-        In-house rating: <%= agency.in_house_rating %><br />
-        Overall rating: <%= agency.overall_rating %><br />
-        Client rating: <%= agency.client_rating %></p>
+          In-house rating: <%= agency.in_house_rating %><br />
+          Overall rating: <%= agency.overall_rating %><br />
+          Client rating: <%= agency.client_rating %></p>
         <p id="short-description"><%= agency.short_description %></p>
         <p id="phone">Phone: <%= agency.phone %></p>
         <p id="address"><%= agency.street %><br />
         <%= agency.city %>, <%= agency.state %></p>
+        <% if current_user %>
+          <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
+        <% end %>
       </div>
     </div>
   <% end %>

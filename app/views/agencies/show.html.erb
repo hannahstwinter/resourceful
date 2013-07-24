@@ -1,20 +1,12 @@
-<script language='javascript'>
-  $(document).ready(function() {
-    <%= color_picker %>
-  });
-</script>
 <div id="bkg">
   <div id="color">
     <p id="name"><%= @agency.name %></p>
   </div>
   <div id="bkg" class="main">
-    <% if current_user %>
-      <%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s %>
-    <% end %>
     <dl class="tags">
-      <dt>Tags:</dt>
+      <dt>Agency Tags:</dt>
       <% @agency.tag.split(",").each do |tag| %>
-      <dd><%= tag %></dd>
+        <dd><%= tag %></dd>
       <% end %>
     </dl>
     <p id="rating">
@@ -32,5 +24,8 @@
     <p id="address"><%= @agency.street %><br />
     <%= @agency.city %>, <%= @agency.state %></p>
     <p id="long-description"><%= @agency.long_description %></p>
+    <% if current_user %>
+      <p id="add-link"><%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s, :class => "add-link" %></p>
+    <% end %>
   </div>
 </div>

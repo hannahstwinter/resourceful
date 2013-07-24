@@ -101,7 +101,7 @@ div#notices {
   color: #2C3E50;
   width: 100%;
   margin: 0 auto;
-  background-color: #E67E22;
+  background-color: #e74c3c;
 }
 
 div#no-bkg {
@@ -115,11 +115,14 @@ div#no-bkg.form {
   padding: 20px 5px 5px 20px;
 }
 
+div#bkg.list {
+  padding: 0 0 15px 0;
+}
+
 div#bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
-/*  padding: 10px 30px 15px 30px;
-*/  background-color: #95A5A6;
+  background-color: #95A5A6;
   margin: 20px;
   width: 75%;
 }
@@ -132,7 +135,8 @@ div#color {
 }
 
 div#bkg.main {
-  padding: 0 30px 15px 30px;
+  padding: 10px 30px 15px 30px;
+  margin: 20px;
 }
 
 div#label {

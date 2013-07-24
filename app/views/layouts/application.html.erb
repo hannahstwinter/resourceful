@@ -45,7 +45,7 @@
       <% if current_user.agency_id != nil %>
         <li><%= current_user.agency.name %></li>
       <% end %>
-      <li><%= link_to_unless_current "Add an Agency", new_agency_path %></li>
+      <li id="last"><%= link_to_unless_current "Add an Agency", new_agency_path %></li>
     </ul>
   <% end %>
 </div>
