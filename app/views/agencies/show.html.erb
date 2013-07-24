@@ -1,27 +1,36 @@
+<script language='javascript'>
+  $(document).ready(function() {
+    <%= color_picker %>
+  });
+</script>
 <div id="bkg">
-  <p id="name"><%= @agency.name %></p>
-  <% if current_user %>
-    <%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s %>
-  <% end %>
-  <dl class="tags">
-    <dt>Tags:</dt>
-    <% @agency.tag.split(",").each do |tag| %>
-    <dd><%= tag %></dd>
-    <% end %>
-  </dl>
-  <p id="rating">
-    In-house rating: <%= @agency.in_house_rating %><br />
-    Overall rating: <%= @agency.overall_rating %><br />
-    Client rating: <%= @agency.client_rating %><br />
+  <div id="color">
+    <p id="name"><%= @agency.name %></p>
+  </div>
+  <div id="bkg" class="main">
     <% if current_user %>
-      Your Rating:<br />
-      <%= render "votes/stars" %><br />
-      <%= link_to 'Leave a Review', root_url %>
+      <%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s %>
     <% end %>
-  </p>
-  <p id="short-description"><%= @agency.short_description %></p>
-  <p id="phone">Phone: <%= @agency.phone %></p>
-  <p id="address"><%= @agency.street %><br />
-  <%= @agency.city %>, <%= @agency.state %></p>
-  <p id="long-description"><%= @agency.long_description %></p>
+    <dl class="tags">
+      <dt>Tags:</dt>
+      <% @agency.tag.split(",").each do |tag| %>
+      <dd><%= tag %></dd>
+      <% end %>
+    </dl>
+    <p id="rating">
+      In-house rating: <%= @agency.in_house_rating %><br />
+      Overall rating: <%= @agency.overall_rating %><br />
+      Client rating: <%= @agency.client_rating %><br />
+      <% if current_user %>
+        Your Rating:<br />
+        <%= render "votes/stars" %><br />
+        <%= link_to 'Leave a Review', root_url %>
+      <% end %>
+    </p>
+    <p id="short-description"><%= @agency.short_description %></p>
+    <p id="phone">Phone: <%= @agency.phone %></p>
+    <p id="address"><%= @agency.street %><br />
+    <%= @agency.city %>, <%= @agency.state %></p>
+    <p id="long-description"><%= @agency.long_description %></p>
+  </div>
 </div>

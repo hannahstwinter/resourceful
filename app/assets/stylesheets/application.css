@@ -20,7 +20,7 @@ body {
 ul.page-nav {
   margin: 0;
   padding: 5px 0 5px 0;
-  background-color: #16A085;
+  background-color: #1abc9c;
   list-style-type: none;
 }
 
@@ -118,10 +118,21 @@ div#no-bkg.form {
 div#bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
-  padding: 10px 30px 15px 30px;
-  background-color: #95A5A6;
+/*  padding: 10px 30px 15px 30px;
+*/  background-color: #95A5A6;
   margin: 20px;
   width: 75%;
+}
+
+div#color {
+  margin: 0;
+  font-weight: bold;
+  background-color: #f39c12;
+  padding: 1px 0 1px 30px;
+}
+
+div#bkg.main {
+  padding: 0 30px 15px 30px;
 }
 
 div#label {
@@ -152,7 +163,7 @@ p#phone {
 }
 
 p#name {
-  font-weight: bold;
+  padding: 0;
 }
 
 p.user {
@@ -165,3 +176,16 @@ p.user {
 .actions {
   margin: 12px 0 15px 0;
 }
+
+/*flat ui colors:
+turquoise:   #1abc9c
+emerald:     #2ecc71
+peter river: #3498db
+amethyst:    #9b59b6 3: #B37FC7;
+sunflower:   #f1c40f 3: #F5D451;
+orange:      #f39c12 3: #F6B651;
+carrot:      #e67e22 3: #E98935;
+pumpkin:     #d35400 3: #FF6C0A;
+alizarin:    #e74c3c
+pomegranate: #c0392b 3: #D96659;
+*/

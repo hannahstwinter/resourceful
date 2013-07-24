@@ -19,8 +19,8 @@ class ShareController < ApplicationController
 
     Mailer.contact_email(email).deliver
 
-    flash[:notice] = "Your contact's information has been sent to #{params[:email]}."
-    redirect_to :root
+    flash[:notice] = "#{params[:name]}'s contact information has been sent to #{params[:email]}."
+    redirect_to users_path
   end
 
 end

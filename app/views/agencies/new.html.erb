@@ -1,5 +1,5 @@
-<div id="bkg">
-  <p>
+<div id="bkg" class="main">
+  <p>Enter the information for the agency you wish to add to Resourceful:</p>
   <%= form_for :agency, :url => {:action => "create"} do |f| %>
     <div class="field">
       <%= f.label :name %><br />
@@ -33,6 +33,5 @@
     <div class="actions">
       <%= f.submit %>
     </div>
-</p>
   <% end %>
 </div>
