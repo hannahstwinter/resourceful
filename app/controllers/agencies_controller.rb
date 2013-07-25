@@ -22,7 +22,21 @@ class AgenciesController < ApplicationController
     @agency = Agency.find(params[:id])
   end
 
+  def edit
+    @agency = Agency.find(params[:id])
+  end
+
+  def update
+    Agency.update(params[:id], params[:agency])
+    flash[:notice] = "#{params[:agency][:name]}'s information has been updated."
+    redirect_to "/agencies/#{params[:id]}"
+  end
+
   def destroy
+    @agency = Agency.find(params[:id])
+    flash[:notice] = "#{@agency.name}'s information has been deleted."
+    Agency.destroy(@agency.id)
+    redirect_to root_url
   end
 
 end

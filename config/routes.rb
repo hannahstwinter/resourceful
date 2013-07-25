@@ -21,6 +21,9 @@ Resourceful::Application.routes.draw do
   get "/contact/:id" => "contacts#new", :as => :contact
   post "contact" => "contacts#create"
   post "share" => "share#post"
+  post "email" => "email#post"
+  post "agencies/:id" => "agencies#update"
+
 
   resources :agency
 

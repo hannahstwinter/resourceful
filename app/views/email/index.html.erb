@@ -1,11 +1,21 @@
-<div id="no-bkg">
-  <p>
-  This is where the dev contact info will go.
-  </p>
-  <p>
-  Like this: h.winter.dev@gmail.com
-  </p>
-  <p>
-  Better yet, I could put a form here that will allow users and non-users to send an email.
-  </p>
+<div id="bkg" class="main">
+  <h3>Contact the development team at Resourceful!</h3>
+  <%= form_tag("email", :method => "post") do %>
+    <div class="field">
+      <%= label_tag("your message to the team:") %><br />
+      <%= text_area_tag :message %><br />
+    </div>
+    <div class="field">
+      <%= label_tag("Your name:") %><br />
+      <%= text_field_tag :name %><br />
+    </div>
+    <div class="field">
+      <%= label_tag("Your email address:") %><br />
+      <%= text_field_tag :email %><br />
+    </div>
+    <div class="actions">
+      <%= submit_tag("Send Email") %>
+    </div>
+  <% end %>
+  <p>Please note: your name and email are not required but it is helpful to our team to be able to contact you in regards to your message. Thanks for contacting us!</p>
 </div>

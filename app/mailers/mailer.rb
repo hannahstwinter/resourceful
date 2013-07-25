@@ -1,5 +1,4 @@
 class Mailer < ActionMailer::Base
-  default from: 'hstwinter@gmail.com'
 
   def welcome_email(user)
     @user = user
@@ -16,6 +15,13 @@ class Mailer < ActionMailer::Base
     @additional_notes = email[:additional_notes]
     @user = email[:user]
     mail(:to => email[:recipient], :subject => "Shared Contact from Resourceful")
+  end
+
+  def dev_message(email)
+    @message = email[:message]
+    @name = email[:name]
+    @email = email[:email]
+    mail(:to => ENV["GMAIL_USERNAME"], :subject => "Email from Resourceful User")
   end
 
 end

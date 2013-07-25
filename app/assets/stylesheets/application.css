@@ -70,10 +70,6 @@ a:hover {
   color: #8e44ad;
 }
 
-/*:visited {
-  color: #8E44AD;
-}*/
-
 div.current-user {
   margin: 0 auto;
   padding: 5px 5px 5px 20px;
@@ -186,6 +182,15 @@ p.user {
 
 .actions {
   margin: 12px 0 15px 0;
+}
+
+div#delete {
+  font-family: arial,sans serif;
+  font-size: 25;
+  font-weight: bold;
+  color: #2C3E50;
+  background-color: #e74c3c;
+  padding: 1px 0 1px 20px;
 }
 
 /*flat ui colors:
