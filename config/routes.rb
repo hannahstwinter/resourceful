@@ -24,7 +24,7 @@ Resourceful::Application.routes.draw do
   post "email" => "email#post"
   post "agencies/:id" => "agencies#update"
 
-
+  resources :reviews
   resources :agency
 
   # The priority is based upon order of creation:

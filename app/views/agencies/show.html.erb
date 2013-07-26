@@ -10,13 +10,10 @@
       <% end %>
     </dl>
     <p id="rating">
-      In-house rating: <%= @agency.in_house_rating %><br />
-      Overall rating: <%= @agency.overall_rating %><br />
-      Client rating: <%= @agency.client_rating %><br />
+      Rating: <%= @agency.in_house_rating %><br />
       <% if current_user %>
         Your Rating:<br />
         <%= render "votes/stars" %><br />
-        <%= link_to 'Leave a Review', root_url %>
       <% end %>
     </p>
     <p id="short-description"><%= @agency.short_description %></p>
@@ -28,5 +25,23 @@
       <p id="add-link"><%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s, :class => "add-link" %></p>
       <p><%= link_to "Edit this Information", [:edit, @agency] %></p>
     <% end %>
+    <div id="reviews">
+      <div id="color" class="clickable">
+        <p>Click Here to <% if current_user %> Write or <% end %> Read Reviews on <%= @agency.name %></p>
+      </div>
+      <% @reviews.each do |review| %>
+        <div id="review" class="hidden">
+          <% @user = User.find(review.user_id) %>
+          <%= @user.name %> writes:<br /><br />
+          <%= review.body %><br />
+          <% if current_user && current_user.id == @user.id %>
+            <%= link_to 'Delete this Review', "/reviews/#{review.id}", :method => :delete %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if current_user %>
+        <%= render "reviews/new" %>
+      <% end %>
+    </div>
   </div>
 </div>

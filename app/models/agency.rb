@@ -2,6 +2,7 @@ class Agency < ActiveRecord::Base
   attr_accessible :city, :in_house_rating, :long_description, :name, :overall_rating, :client_rating, :phone, :short_description, :state, :street, :tag
   has_many :votes
   has_many :users
+  has_many :reviews
   validates :name, :presence => true
   validates :street, :presence => true
   validates :city, :presence => true

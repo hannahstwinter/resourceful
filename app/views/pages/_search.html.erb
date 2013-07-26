@@ -1,17 +1,10 @@
 <div id="no-bkg">
   <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
   <%= form_tag('/pages', :method => 'get') do %>
-    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+    <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
 
-    <p>Sort search results by:</p>
-    <% if current_user && current_user.agency_id != nil %>
       <%= radio_button_tag(:rating, "in_house_rating") %>
-      <%= label_tag(:in_house_rating, "In-House Rating") %><br />
-    <% end %>
-    <%= radio_button_tag(:rating, "overall_rating") %>
-    <%= label_tag(:overall_rating, "Overall Rating") %><br />
-    <%= radio_button_tag(:rating, "client_rating") %>
-    <%= label_tag(:client_rating, "Client Rating") %><br /><br />
+      <%= label_tag(:in_house_rating, "Sort by Rating") %><br /><br />
     <%= submit_tag "Search", :name => nil %>
   <% end %>
 </div>

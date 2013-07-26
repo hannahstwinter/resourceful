@@ -1,5 +1,19 @@
 <div id="bkg" class="main">
-  <p>Enter the information for the agency you wish to add to Resourceful:</p>
+  <div id="similar">
+    <% if @agencies %>
+      <p>There is an agency in our database with that name already:</p>
+      <% @agencies.each do |agency| %>
+        <%= agency.name %><br />
+        <%= agency.street %><br />
+        <%= agency.city %>, <%= agency.state %><br />
+        <%= agency.phone %><br />
+      <% end %>
+      <p>If this is not the same agency, edit the agency name then click the 'Save Agency' button below once more.</p>
+    <% end %>
+  </div>
+  <% if @agencies.nil? %>
+    <p>Enter the information for the agency you wish to add to Resourceful:</p>
+  <% end %>
   <%= form_for :agency, :url => {:action => "create"} do |f| %>
     <div class="field">
       <%= f.label :name %><br />
@@ -22,8 +36,12 @@
       <%= f.text_field :phone %><br />
     </div>
     <div class="field">
-      <%= f.label :short_description %><br />
+      <%= f.label :short_description %>, one or two sentences summarizing the agency.<br />
       <%= f.text_area :short_description, :size => "24x6" %><br />
+    </div>
+    <div class="field">
+      <%= f.label :long_description %>, describing services the agency offers.<br />
+      <%= f.text_area :long_description, :size => "24x12" %><br />
     </div>
     <div class="field">
       <%= f.label :tag %>s, separated by commas<br />

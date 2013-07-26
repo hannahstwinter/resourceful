@@ -1,17 +1,26 @@
 class AgenciesController < ApplicationController
 
   def new
-    @agency = Agency.new
+    # @agency = Agency.new
   end
 
   def create
-    agency = Agency.new(params[:agency])
-    if agency.save
-      flash[:notice] = "Agency added!"
-      redirect_to root_url
+    @agency = Agency.new(params[:agency])
+    @similar = Agency.where('name LIKE ?', params[:agency][:name])
+    if @similar.empty?
+      if @agency.save
+        flash[:notice] = "Agency added!"
+        redirect_to root_url
+      else
+        flash[:notice] = "Sorry, but there was an error in adding the agency information."
+        redirect_to root_url
+      end
     else
-      flash[:notice] = "Sorry, but there was an error in adding the agency information."
-      redirect_to root_url
+      @agencies = []
+      @similar.each do |agency|
+        @agencies << agency
+      end
+      render :new
     end
   end
 
@@ -20,6 +29,7 @@ class AgenciesController < ApplicationController
 
   def show
     @agency = Agency.find(params[:id])
+    @reviews = @agency.reviews
   end
 
   def edit

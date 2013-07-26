@@ -7,7 +7,6 @@ class UsersController < ApplicationController
       @agencies << Agency.find(contact.agency_id)
     end
     @contact_list = @contacts.zip(@agencies)
-    # LOOK INTO CANCAN
   end
 
 end

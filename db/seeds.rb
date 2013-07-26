@@ -9,6 +9,18 @@
 require 'rubygems'
 require 'faker'
 
+# # Review
+
+# 100.times do
+#   body = Faker::Lorem.paragraph
+#   agency_id = rand(14) + 1
+#   user_id = rand(9) + 1
+#   review = Review.create( :user_id => user_id,
+#                           :agency_id => agency_id,
+#                           :body => body
+#                           )
+# end
+
 # # Agency
 
 # tag_array = [ 'children',

@@ -16,17 +16,11 @@
 
 $(document).ready(function(){
 
-  // $('a#about').on('click', function(event){
-  //   event.preventDefault();
-  //   $.scrollTo($('div.about'), 500);
-  // }) NEED SCROLLTO PLUGIN?
-
-//   $(".signup").on("click", function(event){
-//     event.preventDefault();
-//   });
-
-//   $(".login").on("click", function(event){
-//     event.preventDefault();
-//   });
+  $('div#color.clickable').click(function(){
+    $('div#review.hidden').slideToggle('2000',"linear");
+  });
 
 })
+
+
+

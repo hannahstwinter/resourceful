@@ -184,6 +184,14 @@ p.user {
   margin: 12px 0 15px 0;
 }
 
+div#review {
+  font-family: arial,sans serif;
+  color: #2C3E50;
+  padding: 10px;
+  margin: 5px;
+  background-color: #ECF0F1;
+}
+
 div#delete {
   font-family: arial,sans serif;
   font-size: 25;
@@ -191,6 +199,10 @@ div#delete {
   color: #2C3E50;
   background-color: #e74c3c;
   padding: 1px 0 1px 20px;
+}
+
+.hidden {
+  display: none;
 }
 
 /*flat ui colors:
