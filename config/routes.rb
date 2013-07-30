@@ -26,6 +26,7 @@ Resourceful::Application.routes.draw do
 
   resources :reviews
   resources :agency
+  resources :contacts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

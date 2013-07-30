@@ -107,6 +107,25 @@ div#notices {
   background-color: #e74c3c;
 }
 
+h3 {
+  font-family: arial,sans serif;
+  color: #2C3E50;
+}
+
+ul#contact-nav {
+  font-family: arial,sans serif;
+  color: #2C3E50;
+  list-style-type: none;
+  background-color: #3498db;
+  margin: 20px;
+  width: 72%;
+}
+
+ul#contact-nav li {
+  display: inline-block;
+  padding: 9px;
+}
+
 div#no-bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
@@ -199,6 +218,17 @@ div#delete {
   color: #2C3E50;
   background-color: #e74c3c;
   padding: 1px 0 1px 20px;
+}
+
+div#delete a {
+  text-decoration: none;
+  font-family: arial,sans serif;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+div#delete a:hover {
+  color: #8e44ad;
 }
 
 .hidden {

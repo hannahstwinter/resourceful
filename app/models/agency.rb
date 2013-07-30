@@ -26,7 +26,7 @@ class Agency < ActiveRecord::Base
         @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
       end
     else
-      @agencies = Agency.order("overall_rating DESC").limit(5)
+      @agencies = Agency.order("created_at DESC").limit(5)
     end
   end
 end

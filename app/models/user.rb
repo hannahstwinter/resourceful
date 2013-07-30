@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   def self.authenticate(email)
     find_by_email(email).try(:authenticate, password)
   end
+
 end
 
  # it { should_not allow_mass_assignment_of(:password) }

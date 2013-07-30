@@ -2,11 +2,9 @@
 
 The inspiration for Resourceful comes from talking with my wife, a social worker, about common practices in the offices she has had experience in. There is typically a constant exchange of information between coworkers, counselors and clients, etc. in regards to different agencies that are used to subsidize treatment plans, provide resources, etc. For some reason, in the environments my wife has worked in, there is no existing platform to ensure that information can be shared with ease, efficiency, and minimization of human error. This is my simple solution to a simple problem.
 
-The intended structuring of Resourceful is such that any user can access the information available, but only registered users that are affiliated with an agency on Resourceful can add or edit agency information. 
+The intended structuring of Resourceful is such that any user can access the information available, but only registered users that are affiliated with an agency on Resourceful can add or edit agency information.
 
-There is a rating system for the agencies: in-house rating, overall rating, and client rating. The search results for agencies can be sorted according to one of these rating scales.
-
-Please, let me know if you have any ideas or recommendations to streamline this project! It will be live soon enough and will be in use, so any tips or ideas to keep things running smooth would be great. 
+Please, let me know if you have any ideas or recommendations to streamline this project! It will be live soon enough and will be in use, so any tips or ideas to keep things running smooth would be great.
 
 You can visit the latest version of Resourceful here:
 
