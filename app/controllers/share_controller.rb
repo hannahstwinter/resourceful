@@ -8,7 +8,8 @@ class ShareController < ApplicationController
 
   def post
     email = { :recipient => params[:email],
-              :name => params[:name],
+              :first_name => params[:first_name],
+              :last_name => params[:last_name],
               :agency => params[:agency],
               :agency_desc => params[:agency_desc],
               :phone => params[:phone],
@@ -19,7 +20,7 @@ class ShareController < ApplicationController
 
     Mailer.contact_email(email).deliver
 
-    flash[:notice] = "#{params[:name]}'s contact information has been sent to #{params[:email]}."
+    flash[:notice] = "#{params[:first_name]} #{params[:last_name]}'s contact information has been sent to #{params[:email]}."
     redirect_to users_path
   end
 

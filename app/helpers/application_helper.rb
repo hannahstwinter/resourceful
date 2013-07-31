@@ -1,30 +1,43 @@
 module ApplicationHelper
 
   def fading_flash_notice
-    return '' if !flash[:notice]
+    return '' if !flash[:notice] && !flash[:error] && !flash[:alert]
     notice_id = rand.to_s.gsub(/\./, '')
-    notice = <<-EOF
-      $('#notices').append("<div id='#{notice_id}' class='flash_notice'>#{flash[:notice]}</div>");
-      $("##{notice_id}").css({'padding':'10px 10px 10px 20px'}).delay(5000).slideUp();
-    EOF
+    if flash[:notice]
+      text = flash[:notice]
+      notice = <<-EOF
+        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#2ecc71'});
+        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
+        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
+        $('img#circle').click(function(event){
+          event.preventDefault();
+          $("##{notice_id}").slideUp();
+        });
+      EOF
+    elsif flash[:alert]
+      text = flash[:alert]
+      notice = <<-EOF
+        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#e74c3c'});
+        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
+        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
+        $('img#circle').click(function(event){
+          event.preventDefault();
+          $("##{notice_id}").slideUp();
+        });
+      EOF
+    elsif flash[:error]
+      text = flash[:error]
+      notice = <<-EOF
+        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#e74c3c'});
+        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
+        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
+        $('img#circle').click(function(event){
+          event.preventDefault();
+          $("##{notice_id}").slideUp();
+        });
+      EOF
+    end
     notice.html_safe
   end
-
-  def save_entry_link(agency)
-    agency.save
-    redirect_to root_url
-  end
-
-  # def color_picker
-  #   picked = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#f1c40f', '#f39c12', '#e67e22', '#d35400', '#e74c3c', '#c0392b'].sample
-  #   color = <<-EOF
-  #     $('#color').css({'background-color':"#{picked}"});
-  #   EOF
-  #   color.html_safe
-  # end
-
-  # def color
-  #   ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#f1c40f', '#f39c12', '#e67e22', '#d35400', '#e74c3c', '#c0392b'].sample
-  # end
 
 end

@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :agency_id, :notes, :user_id, :name, :phone
+  attr_accessible :agency_id, :notes, :user_id, :first_name, :last_name, :phone
   belongs_to :user
   validates :agency_id, :presence => true
   validates :user_id, :presence => true
@@ -7,19 +7,40 @@ class Contact < ActiveRecord::Base
   validates :agency_id, :numericality => true
 
   def self.search(search, search_by, user_id)
-    if search
-      if search_by == 'agency'
-        user_contacts = Contact.where('user_id = ?', user_id)
-        @agencies = Agency.where('tag = ? OR name = ?', search, search)
-        return @agencies
-      else
-        @contacts = Contact.where('user_id = ? AND name = ?', user_id, search)
-        return @contacts
-      end
+    if search_by == 'agency'
+      agencies = Agency.where('tag = ? OR name = ?', search, search)
+      return Contact.compile_list(agencies, nil, user_id)
+    elsif search_by == 'contact'
+      contacts = Contact.where(user_id: search).where('first_name = ? OR last_name = ?', search, search)
+      return Contact.compile_list(nil, contacts, user_id)
     else
-      @contacts = Contact.where('user_id = ?', user_id)
-      return @contacts
+      return Contact.display(user_id)
     end
+  end
+
+  def self.compile_list(agencies, contacts, user_id)
+    if agencies == nil
+      agencies = []
+      contacts.each do |contact|
+        agencies << Agency.find(contact.agency_id)
+      end
+    elsif contacts == nil
+      contacts = []
+      agencies.each do |agency|
+        contacts << Contact.where(user_id: user_id, agency_id: agency.id)
+      end
+      contacts.flatten!
+    end
+    return contacts.zip(agencies)
+  end
+
+  def self.display(user_id)
+    contacts = Contact.where("user_id = ?", user_id)
+    agencies = []
+    contacts.each do |contact|
+      agencies << Agency.find(contact.agency_id)
+    end
+    return Contact.compile_list(agencies, contacts, user_id)
   end
 
 end

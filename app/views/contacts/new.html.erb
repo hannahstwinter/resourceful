@@ -3,8 +3,10 @@
   <%= form_for @contact, :url => {:action => :create}, :html => {:class => "/contact/create"} do |f| %>
     <%= f.hidden_field :agency_id, :value => @agency.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %><br />
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %><br />
     <%= f.label :phone %><br />
     <%= f.text_field :phone %><br />
     <%= f.label :notes %><br />

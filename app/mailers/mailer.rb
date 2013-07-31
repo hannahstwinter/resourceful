@@ -7,7 +7,8 @@ class Mailer < ActionMailer::Base
   end
 
   def contact_email(email)
-    @name = email[:name]
+    @first_name = email[:first_name]
+    @last_name = email[:last_name]
     @agency = email[:agency]
     @agency_desc = email[:agency_desc]
     @phone = email[:phone]

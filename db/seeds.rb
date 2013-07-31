@@ -66,7 +66,8 @@ require 'faker'
 # # Contacts
 
 # 35.times do
-#   name = Faker::Name.name
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
 #   phone = Faker::PhoneNumber.phone_number
 #   text = Faker::Lorem.paragraph
 #   agency_id = rand(15) + 1
@@ -74,7 +75,8 @@ require 'faker'
 
 #   Contact.create(:user_id => user_id,
 #                  :agency_id => agency_id,
-#                  :name => name,
+#                  :first_name => first_name,
+#                  :last_name => last_name,
 #                  :phone => phone,
 #                  :notes => text
 #                 )

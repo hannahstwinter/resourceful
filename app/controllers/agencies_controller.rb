@@ -12,7 +12,7 @@ class AgenciesController < ApplicationController
         flash[:notice] = "Agency added!"
         redirect_to root_url
       else
-        flash[:notice] = "Sorry, but there was an error in adding the agency information."
+        flash[:error] = "Sorry, but there was an error in adding the agency information."
         redirect_to root_url
       end
     else

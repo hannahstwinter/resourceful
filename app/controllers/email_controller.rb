@@ -11,7 +11,7 @@ class EmailController < ApplicationController
 
     Mailer.dev_message(email).deliver
 
-    flash[:notice] = "Thanks for giving us feedback!"
+    flash[:notice] = "Your message has been sent. Thanks for giving us feedback!"
     redirect_to root_path
   end
 

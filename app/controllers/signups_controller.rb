@@ -8,11 +8,15 @@ class SignupsController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       Mailer.welcome_email(@user).deliver
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Your account has been created. Thanks for signing up!"
       session[:user_id] = @user.id
       redirect_to :root
     else
-      flash[:notice] = "Invalid signup, please try again."
+      if params[:user][:password] != params[:user][:password_confirmation]
+        flash[:error] = "Passwords don't match. Please try again."
+      elsif @user.errors.full_messages
+        flash[:error] = "#{@user.errors.full_messages.first}. Please try again."
+      end
       redirect_to signup_url
     end
   end

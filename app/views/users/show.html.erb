@@ -18,7 +18,7 @@
 <% @contact_list.each do |contact, agency| %>
   <div id="bkg">
     <div id="color">
-      <p id="name"><%= contact.name %></p>
+      <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
     </div>
     <div id="bkg" class="main">
       <dl class="tags">

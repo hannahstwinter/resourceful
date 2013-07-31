@@ -1,7 +1,7 @@
 <%= render "search" %>
 
 <div class="resource-list">
-  <% if !@agencies_w_contact.empty? %>
+  <% if current_user && !@agencies_w_contact.empty? %>
     <div id="no-bkg">
       <h3>Agencies where you have a contact:</h3>
     </div>

@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review has been saved!"
       redirect_to "/agencies/#{agency.id}"
     else
-      flash[:notice] = "Sorry, but there was an error in adding your review."
+      flash[:error] = "Sorry, but there was an error in adding your review."
       redirect_to "/agencies/#{agency.id}"
     end
   end

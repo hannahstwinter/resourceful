@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     elsif user && !user.authenticate(params[:password])
-      flash[:notice] = "Invalid password."
+      flash[:error] = "Invalid password."
       redirect_to signin_path
     else
-      flash[:notice] = "Invalid email address."
+      flash[:error] = "Invalid email address."
       redirect_to signin_path
     end
   end

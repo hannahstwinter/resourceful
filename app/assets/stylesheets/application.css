@@ -97,14 +97,16 @@ ul.user-info li {
 How to center vertically?
 */
 
-div#notices {
+div.flash_notice {
   font-family: arial,sans serif;
-  font-size: 25;
+  font-size: 18px;
   font-weight: bold;
   color: #2C3E50;
   width: 100%;
-  margin: 0 auto;
-  background-color: #e74c3c;
+}
+
+div#circle img {
+  float:right;
 }
 
 h3 {
@@ -247,3 +249,7 @@ pumpkin:     #d35400 3: #FF6C0A;
 alizarin:    #e74c3c
 pomegranate: #c0392b 3: #D96659;
 */
+
+
+
+

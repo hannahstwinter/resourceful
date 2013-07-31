@@ -1,8 +1,10 @@
 <div id="bkg" class="main">
   <p>Edit your contact's information:</p>
   <%= form_for @contact, :url => {:action => "update"} do |f| %>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %><br />
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %><br />
     <%= f.label :phone %><br />
     <%= f.text_field :phone %><br />
     <%= f.label :notes %><br />
