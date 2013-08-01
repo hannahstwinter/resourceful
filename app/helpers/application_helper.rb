@@ -5,38 +5,23 @@ module ApplicationHelper
     notice_id = rand.to_s.gsub(/\./, '')
     if flash[:notice]
       text = flash[:notice]
-      notice = <<-EOF
-        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#2ecc71'});
-        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
-        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
-        $('img#circle').click(function(event){
-          event.preventDefault();
-          $("##{notice_id}").slideUp();
-        });
-      EOF
+      color = '#2ecc71'
     elsif flash[:alert]
       text = flash[:alert]
-      notice = <<-EOF
-        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#e74c3c'});
-        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
-        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
-        $('img#circle').click(function(event){
-          event.preventDefault();
-          $("##{notice_id}").slideUp();
-        });
-      EOF
-    elsif flash[:error]
+      color = '#e74c3c'
+    else
       text = flash[:error]
-      notice = <<-EOF
-        $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#e74c3c'});
-        $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
-        $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
-        $('img#circle').click(function(event){
-          event.preventDefault();
-          $("##{notice_id}").slideUp();
-        });
-      EOF
+      color = '#e74c3c'
     end
+    notice = <<-EOF
+      $('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#{color}'});
+      $('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
+      $("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
+      $('img#circle').click(function(event){
+        event.preventDefault();
+        $("##{notice_id}").slideUp();
+      });
+    EOF
     notice.html_safe
   end
 
