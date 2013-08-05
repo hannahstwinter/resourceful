@@ -8,6 +8,7 @@ class Agency < ActiveRecord::Base
   validates :city, :presence => true
   validates :state, :presence => true
   validates :short_description, :presence => true
+  validates :long_description, :presence => true
   validates :tag, :presence => true
   validates :phone, :presence => true
   validates :name, :uniqueness => true
@@ -16,7 +17,7 @@ class Agency < ActiveRecord::Base
 
   def self.search(search)
     if search
-        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', search, search)
+        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
     else
       @agencies = Agency.order("created_at DESC").limit(5)
     end

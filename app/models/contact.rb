@@ -8,13 +8,13 @@ class Contact < ActiveRecord::Base
 
   def self.search(search, search_by, user_id)
     if search_by == 'agency'
-      agencies = Agency.where('tag = ? OR name = ?', search, search)
+      agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
       return Contact.compile_list(agencies, nil, user_id)
     elsif search_by == 'contact'
-      contacts = Contact.where(user_id: search).where('first_name = ? OR last_name = ?', search, search)
+      contacts = Contact.where(user_id: search).where('first_name like ? OR last_name like ?', "%#{search}%", "%#{search}%").order('last_name')
       return Contact.compile_list(nil, contacts, user_id)
-    else
-      return Contact.display(user_id)
+    # else
+    #   return Contact.display(user_id)
     end
   end
 
@@ -24,10 +24,10 @@ class Contact < ActiveRecord::Base
       contacts.each do |contact|
         agencies << Agency.find(contact.agency_id)
       end
-    elsif contacts == nil
+    else #if contacts == nil
       contacts = []
       agencies.each do |agency|
-        contacts << Contact.where(user_id: user_id, agency_id: agency.id)
+        contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
       end
       contacts.flatten!
     end
@@ -35,7 +35,7 @@ class Contact < ActiveRecord::Base
   end
 
   def self.display(user_id)
-    contacts = Contact.where("user_id = ?", user_id)
+    contacts = Contact.where("user_id = ?", user_id).order('last_name')
     agencies = []
     contacts.each do |contact|
       agencies << Agency.find(contact.agency_id)

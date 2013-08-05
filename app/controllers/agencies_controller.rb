@@ -1,7 +1,7 @@
 class AgenciesController < ApplicationController
 
   def new
-    # @agency = Agency.new
+    @agency = Agency.new
   end
 
   def create
@@ -12,8 +12,15 @@ class AgenciesController < ApplicationController
         flash[:notice] = "Agency added!"
         redirect_to root_url
       else
-        flash[:error] = "Sorry, but there was an error in adding the agency information."
-        redirect_to root_url
+        errors = []
+        @agency.errors.messages.each do |field, message|
+          errors << field.to_s unless field == :phone
+          if field == :phone
+            # handle it differently
+          end
+        end
+        flash[:error] = "The fields #{errors.join(', ')} cannot be left blank."
+        render :new
       end
     else
       @agencies = []

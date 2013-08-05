@@ -19,9 +19,9 @@
         <%= agency.city %>, <%= agency.state %></p>
         <% if current_user %>
           <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
-        <% end %>
-        <% if @contacts_agency_ids.include?(agency.id) %>
-          <br/><br/><%= link_to 'You Have a Contact Here!' %>
+          <% if @contacts_agency_ids.include?(agency.id) %>
+            <br/><br/><%= link_to 'You Have a Contact Here!' %>
+          <% end %>
         <% end %>
       </div>
     </div>
