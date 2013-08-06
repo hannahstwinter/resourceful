@@ -13,8 +13,8 @@ class Contact < ActiveRecord::Base
     elsif search_by == 'contact'
       contacts = Contact.where(user_id: search).where('first_name like ? OR last_name like ?', "%#{search}%", "%#{search}%").order('last_name')
       return Contact.compile_list(nil, contacts, user_id)
-    # else
-    #   return Contact.display(user_id)
+    else
+      return Contact.display(user_id)
     end
   end
 

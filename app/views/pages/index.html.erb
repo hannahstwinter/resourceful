@@ -19,8 +19,8 @@
         <%= agency.city %>, <%= agency.state %></p>
         <% if current_user %>
           <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
-          <% if @contacts_agency_ids.include?(agency.id) %>
-            <br/><br/><%= link_to 'You Have a Contact Here!' %>
+          <% if @contacts.has_key?(agency.id) %>
+            <br/><br/><%= link_to 'You Have a Contact Here!', :id => "uc-jump" %> @contacts[agency.id] returns first letter of Cname
           <% end %>
         <% end %>
       </div>

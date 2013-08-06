@@ -242,6 +242,23 @@ div.field_with_errors {
   padding:0;
 }
 
+div#bottom-spacer {
+  height: 47px;
+}
+
+div#bottom-bar {
+  background: #1abc9c;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 47px;
+}
+
+p#bottom-nav {
+  padding-left: 20px;
+}
+
 /*flat ui colors:
 turquoise:   #1abc9c
 emerald:     #2ecc71

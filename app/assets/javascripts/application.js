@@ -14,10 +14,32 @@
 //= require jquery_ujs
 //= require_tree .
 
+function showIt(elID) {
+  var el = document.getElementById(elID);
+  console.log("are we in here?");
+  console.log(el)
+  el.scrollIntoView(true);
+}
+
 $(document).ready(function(){
 
   $('div#color.clickable').click(function(){
     $('div#review.hidden').slideToggle('2000',"linear");
+  });
+
+  $('a.nav').click(function(e){
+    e.preventDefault();
+    console.log(this.id);
+  });
+
+  $('a.top').click(function(e){
+    e.preventDefault();
+    document.getElementById("head").scrollIntoView();
+  });
+
+  $('a#uc-jump').click(function(e){
+    e.preventDefault();
+
   });
 
 })

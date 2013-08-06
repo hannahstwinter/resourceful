@@ -15,9 +15,17 @@ class Agency < ActiveRecord::Base
   validates :phone, :format => { :with => /^.?\d{3}.?\d{3}.?\d{4}/,
   :message => "Invalid phone number format" }
 
-  def self.search(search)
+  def self.search(search, contact_agency_ids)
     if search
-        @agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
+      agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
+      @agencies = Array.new
+      agencies.each do |agency|
+        if contact_agency_ids.include?(agency.id)
+          @agencies << agency
+        end
+      end
+      @agencies += agencies
+      @agencies.uniq!
     else
       @agencies = Agency.order("created_at DESC").limit(5)
     end

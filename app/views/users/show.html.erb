@@ -2,6 +2,9 @@
   <% if @contact_list.empty? %>
     <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here!<h3>
   <% else %>
+  <p>
+    <%= render "contacts/nav" %>
+  </p>
     <p>Search your contact book by:</p>
     <%= form_tag('/users', :method => 'get') do %>
       <%= radio_button_tag(:search_by, "contact") %>
@@ -11,29 +14,35 @@
       <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
       <%= submit_tag "Search", :name => nil %>
     <% end %>
-    <p><%= link_to "Show all of my Contacts", "/users" %></p>
-    <h3>My Contact Book:</h3>
   <% end %>
 </div>
 <% @contact_list.each do |contact, agency| %>
-  <div id="bkg">
-    <div id="color">
-      <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
-    </div>
-    <div id="bkg" class="main">
-      <dl class="tags">
-        <dt>Agency tags:</dt>
-        <% agency.tag.split(",").each do |tag| %>
-          <dd><%= tag %></dd>
-        <% end %>
-      </dl>
-      <p><%= agency.name %></p>
-      <p><%= contact.phone %></p>
-      <p><%= contact.notes %></p>
-      <p>
-        <%= link_to "Share this Contact", share_path(:id => contact.id) %>
-      </p>
-      <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
+  <div id="c <%= contact.last_name[0] %>">
+    <div id="bkg" >
+      <div id="color">
+        <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
+      </div>
+      <div id="bkg" class="main">
+        <dl class="tags">
+          <dt>Agency tags:</dt>
+          <% agency.tag.split(",").each do |tag| %>
+            <dd><%= tag %></dd>
+          <% end %>
+        </dl>
+        <p><%= agency.name %></p>
+        <p><%= contact.phone %></p>
+        <p><%= contact.notes %></p>
+        <p>
+          <%= link_to "Share this Contact", share_path(:id => contact.id) %>
+        </p>
+        <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
+      </div>
     </div>
   </div>
 <% end %>
+<div id="bottom-spacer"></div>
+<div id="bottom-bar">
+  <p id="bottom-nav"><%= link_to "Show all of my Contacts", "/users" %> | <%= link_to "Top of Page", "/top", :class=>"top"%></p>
+</div>
+
+

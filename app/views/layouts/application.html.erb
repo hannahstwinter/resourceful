@@ -4,8 +4,8 @@
   <title>Resourceful</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag :all %>
   <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
   <% if flash[:notice] || flash[:alert] || flash[:error] %>
   <script language='javascript'>
     $(document).ready(function() {
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="page-head">
+<div class="page-head" id="head">
 
   <ul class="page-nav">
     <li><%= link_to 'Home', root_path %></li>
