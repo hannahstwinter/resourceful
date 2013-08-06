@@ -6,10 +6,13 @@ class PagesController < ApplicationController
       @user_contacts = @user.contacts
       @contacts = Hash.new
       @user_contacts.each do |contact|
-        @contacts[contact.agency_id] = contact.last_name[0]
+        @contacts[contact.agency_id] = contact.id
       end
+    else
+      @user_contacts = nil
+      @user = nil
     end
-    @agencies = Agency.search(params[:search], @contacts_agency_ids)
+    @agencies = Agency.search(params[:search], @contacts, @user)
   end
 
 end

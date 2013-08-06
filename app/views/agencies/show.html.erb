@@ -22,14 +22,20 @@
       <div id="color" class="clickable">
         <p>Click Here to <% if current_user %> Write or <% end %> Read Reviews on <%= @agency.name %></p>
       </div>
-      <% @reviews.each do |review| %>
+      <% if !@reviews.empty? %>
+        <% @reviews.each do |review| %>
+          <div id="review" class="hidden">
+            <% @user = User.find(review.user_id) %>
+            <%= @user.name %> writes:<br /><br />
+            <%= review.body %><br />
+            <% if current_user && current_user.id == @user.id %>
+              <p><%= link_to 'Delete your Review', "/reviews/#{review.id}", :method => :delete %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
         <div id="review" class="hidden">
-          <% @user = User.find(review.user_id) %>
-          <%= @user.name %> writes:<br /><br />
-          <%= review.body %><br />
-          <% if current_user && current_user.id == @user.id %>
-            <p><%= link_to 'Delete your Review', "/reviews/#{review.id}", :method => :delete %></p>
-          <% end %>
+          <p>There aren't any reviews for <%= @agency.name %> yet.</p>
         </div>
       <% end %>
       <% if current_user %>

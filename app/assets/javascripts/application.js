@@ -37,10 +37,14 @@ $(document).ready(function(){
     document.getElementById("head").scrollIntoView();
   });
 
-  $('a#uc-jump').click(function(e){
-    e.preventDefault();
-
-  });
+  // $('a.uc-jump').click(function(e){
+  //   console.log(this.id);
+  //   var el = 'c ' + this.id + '';
+  //   console.log(el);
+  //   page.onload = function(){
+  //     document.getElementById(el).scrollIntoView();
+  //   };
+  // });
 
 })
 

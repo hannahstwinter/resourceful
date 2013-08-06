@@ -17,26 +17,26 @@
   <% end %>
 </div>
 <% @contact_list.each do |contact, agency| %>
-  <div id="c <%= contact.last_name[0] %>">
-    <div id="bkg" >
-      <div id="color">
-        <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
-      </div>
-      <div id="bkg" class="main">
-        <dl class="tags">
-          <dt>Agency tags:</dt>
-          <% agency.tag.split(",").each do |tag| %>
-            <dd><%= tag %></dd>
-          <% end %>
-        </dl>
-        <p><%= agency.name %></p>
-        <p><%= contact.phone %></p>
-        <p><%= contact.notes %></p>
-        <p>
-          <%= link_to "Share this Contact", share_path(:id => contact.id) %>
-        </p>
-        <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
-      </div>
+  <div id="c_<%= contact.last_name[0] %>"></div>
+  <div id="c_<%= contact.id %>"></div>
+  <div id="bkg" >
+    <div id="color">
+      <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
+    </div>
+    <div id="bkg" class="main">
+      <dl class="tags">
+        <dt>Agency tags:</dt>
+        <% agency.tag.split(",").each do |tag| %>
+          <dd><%= tag %></dd>
+        <% end %>
+      </dl>
+      <p><%= agency.name %></p>
+      <p><%= contact.phone %></p>
+      <p><%= contact.notes %></p>
+      <p>
+        <%= link_to "Share this Contact", share_path(:id => contact.id) %>
+      </p>
+      <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
     </div>
   </div>
 <% end %>
