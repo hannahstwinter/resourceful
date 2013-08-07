@@ -26,7 +26,6 @@ class Agency < ActiveRecord::Base
           end
         end
       end
-    elsif search
       @agencies += agencies
       @agencies.uniq!
     else

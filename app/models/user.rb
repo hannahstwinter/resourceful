@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :name, :presence => true
   validates_presence_of :password, :on => :create
-  validates :email, :format => { :with => /\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/, :message => "address is invalid" }
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "address is invalid" }
 
   def self.authenticate(email)
     find_by_email(email).try(:authenticate, password)
