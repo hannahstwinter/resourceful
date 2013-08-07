@@ -11,7 +11,7 @@ class Contact < ActiveRecord::Base
       agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
       return Contact.compile_list(agencies, nil, user_id)
     elsif search_by == 'contact'
-      contacts = Contact.where(user_id: search).where('first_name like ? OR last_name like ?', "%#{search}%", "%#{search}%").order('last_name')
+      contacts = Contact.where(user_id: user_id).where('first_name like ? OR last_name like ?', "%#{search}%", "%#{search}%").order('last_name')
       return Contact.compile_list(nil, contacts, user_id)
     else
       return Contact.display(user_id)

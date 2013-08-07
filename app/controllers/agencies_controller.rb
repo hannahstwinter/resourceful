@@ -19,7 +19,7 @@ class AgenciesController < ApplicationController
             # handle it differently
           end
         end
-        flash[:error] = "The fields #{errors.join(', ')} cannot be left blank."
+        flash.now[:error] = "The fields #{errors.join(', ')} cannot be left blank."
         render :new
       end
     else

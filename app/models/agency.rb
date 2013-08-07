@@ -17,7 +17,7 @@ class Agency < ActiveRecord::Base
 
   def self.search(search, user_contacts, current_user)
     @agencies = Array.new
-    agencies = Agency.where('tag LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
+    agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
     if search && current_user != nil
       if user_contacts != nil
         agencies.each do |agency|
