@@ -21,6 +21,13 @@ function showIt(elID) {
   el.scrollIntoView(true);
 }
 
+function activeContact(elID) {
+  console.log('elID 1: ' + elID + '');
+  var el = document.getElementById(elID);
+  console.log(el);
+  $(el).removeClass("inactive");
+}
+
 $(document).ready(function(){
 
   $('div#color.clickable').click(function(){

@@ -90,13 +90,6 @@ ul.user-info li {
   padding: 10px;
 }
 
-/*li.last {
-  float: right;
-  position: relative;
-}
-How to center vertically?
-*/
-
 div.flash_notice {
   font-family: arial,sans serif;
   font-size: 18px;
@@ -257,6 +250,12 @@ div#bottom-bar {
 
 p#bottom-nav {
   padding-left: 20px;
+}
+
+a.inactive {
+  color: #34495E;
+  pointer-events: none;
+  cursor: default;
 }
 
 /*flat ui colors:

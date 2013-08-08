@@ -17,6 +17,7 @@
   <% end %>
 </div>
 <% @contact_list.each do |contact, agency| %>
+  <%= javascript_tag "activeContact('#{contact.last_name[0]}')" %>
   <div id="c_<%= contact.last_name[0] %>"></div>
   <div id="c_<%= contact.id %>"></div>
   <div id="bkg" >
