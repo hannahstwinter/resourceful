@@ -253,7 +253,7 @@ p#bottom-nav {
 }
 
 a.inactive {
-  color: #34495E;
+  color: #b1bdbd;
   pointer-events: none;
   cursor: default;
 }

@@ -16,15 +16,11 @@
 
 function showIt(elID) {
   var el = document.getElementById(elID);
-  console.log("are we in here?");
-  console.log(el)
   el.scrollIntoView(true);
 }
 
 function activeContact(elID) {
-  console.log('elID 1: ' + elID + '');
   var el = document.getElementById(elID);
-  console.log(el);
   $(el).removeClass("inactive");
 }
 

@@ -12,8 +12,9 @@
       <%= radio_button_tag(:search_by, "agency") %>
       <%= label_tag(:search_by_agency, "Agency name or field ('hospice', 'childcare', etc.)") %><br /><br />
       <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag "Search", :name => nil %><br/><br/>
     <% end %>
+    <%= link_to "Click Here", "/users", class: "bkg" %> to clear out your search results and see all of your contacts.
   <% end %>
 </div>
 <% @contact_list.each do |contact, agency| %>

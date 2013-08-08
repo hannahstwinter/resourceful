@@ -14,7 +14,7 @@ class AgenciesController < ApplicationController
       else
         errors = []
         @agency.errors.messages.each do |field, message|
-          errors << field.to_s unless field == :phone
+          errors << field.to_s.gsub("_", " ") unless field == :phone
           if field == :phone
             # handle it differently
           end
@@ -29,9 +29,6 @@ class AgenciesController < ApplicationController
       end
       render :new
     end
-  end
-
-  def index
   end
 
   def show

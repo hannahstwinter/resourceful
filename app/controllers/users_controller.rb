@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
       end
     end
+    @alphabet_array = ('A'..'Y').to_a
   end
 
   # def show
