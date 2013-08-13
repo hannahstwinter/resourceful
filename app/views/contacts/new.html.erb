@@ -1,5 +1,5 @@
-<div class="bkg main">
-  <p>Please enter information for your contact at <%= @agency.name %>:</p>
+<div class="no-bkg main">
+  <h3>Please enter information for your contact at <%= @agency.name %>:</h3>
   <%= form_for @contact, :url => {:action => :create}, :html => {:class => "/contact/create"} do |f| %>
     <%= f.hidden_field :agency_id, :value => @agency.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>

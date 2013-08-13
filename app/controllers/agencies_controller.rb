@@ -1,4 +1,5 @@
 class AgenciesController < ApplicationController
+  load_and_authorize_resource
 
   def new
     @agency = Agency.new
@@ -50,6 +51,10 @@ class AgenciesController < ApplicationController
     @agency = Agency.find(params[:id])
     flash[:notice] = "#{@agency.name}'s information has been deleted."
     Agency.destroy(@agency.id)
+    contacts = Contact.where(:agency_id => @agency.id)
+    contacts.each do |contact|
+      contact.update_attribute(:agency_id, nil)
+    end
     redirect_to root_url
   end
 

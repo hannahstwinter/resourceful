@@ -16,7 +16,9 @@
     <p id="long-description"><%= @agency.long_description %></p>
     <% if current_user %>
       <p id="add-link"><%= link_to 'Add to Contacts', "/contact/" + @agency.id.to_s, :class => "add-link" %></p>
-      <p><%= link_to "Edit this Information", [:edit, @agency] %></p>
+      <% if can? :update, @agency %>
+        <p><%= link_to "Edit this Information", [:edit, @agency] %></p>
+      <% end %>
     <% end %>
     <div id="reviews">
       <div id="color" class="clickable">

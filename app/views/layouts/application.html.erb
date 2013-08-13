@@ -46,7 +46,9 @@
       <% if current_user.agency_id != nil %>
         <li><%= current_user.agency.name %></li>
       <% end %>
-      <li id="last"><%= link_to_unless_current "Add an Agency", new_agency_path %></li>
+      <% if can? :create, @agency %>
+        <li id="last"><%= link_to_unless_current "Add an Agency", new_agency_path %></li>
+      <% end %>
     </ul>
   <% end %>
 </div>

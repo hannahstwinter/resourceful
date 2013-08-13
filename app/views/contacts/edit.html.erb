@@ -1,5 +1,5 @@
-<div class="bkg main">
-  <p>Edit your contact's information:</p>
+<div class="no-bkg main">
+  <h3>Edit your contact's information:</h3>
   <%= form_for @contact, :url => {:action => "update"} do |f| %>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %><br />
@@ -14,6 +14,7 @@
     </div>
   <% end %>
   <div id="delete">
-    <p><%= link_to "Delete this Contact", "/contacts/#{@contact.id}", :method => :delete %></p>
-</div>
+    <p>Do you wish to delete this contact?</p>
+    <p><%= link_to "Yes, Delete this Contact", "/contacts/#{@contact.id}", :method => :delete, :confirm => "Are you sure?" %></p>
+  </div>
 </div>

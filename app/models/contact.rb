@@ -18,29 +18,41 @@ class Contact < ActiveRecord::Base
     end
   end
 
-  def self.compile_list(agencies, contacts, user_id)
-    if agencies == nil
-      agencies = []
-      contacts.each do |contact|
-        agencies << Agency.find(contact.agency_id)
-      end
-    else #if contacts == nil
-      contacts = []
-      agencies.each do |agency|
-        contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
-      end
-      contacts.flatten!
-    end
-    return contacts.zip(agencies)
-  end
-
   def self.display(user_id)
     contacts = Contact.where("user_id = ?", user_id).order('last_name')
     agencies = []
     contacts.each do |contact|
-      agencies << Agency.find(contact.agency_id)
+      if contact.agency_id == nil
+        agencies << nil
+      else
+        agencies << Agency.find(contact.agency_id)
+      end
     end
     return Contact.compile_list(agencies, contacts, user_id)
+  end
+
+  def self.compile_list(agencies, contacts, user_id)
+    if agencies == nil
+      agencies = []
+      contacts.each do |contact|
+        if contact.agency_id == nil
+          agencies << nil
+        else
+          agencies << Agency.find(contact.agency_id)
+        end
+      end
+    else #if contacts == nil
+      contacts = []
+      agencies.each do |agency|
+        if agency == nil
+          contacts << Contact.where(user_id: user_id, agency_id: nil).order('last_name')
+        else
+          contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
+        end
+      end
+      contacts.flatten!
+    end
+    return contacts.zip(agencies)
   end
 
 end
