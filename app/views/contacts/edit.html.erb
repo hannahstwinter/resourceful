@@ -1,6 +1,8 @@
 <div class="no-bkg main">
   <h3>Edit your contact's information:</h3>
   <%= form_for @contact, :url => {:action => "update"} do |f| %>
+    <%= f.label :agency_name %><br />
+    <%= f.text_field :agency_name %><br />
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %><br />
     <%= f.label :last_name %><br />

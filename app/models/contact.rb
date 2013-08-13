@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :agency_id, :notes, :user_id, :first_name, :last_name, :phone
+  attr_accessible :agency_id, :notes, :user_id, :first_name, :last_name, :phone, :agency_name
   belongs_to :user
   validates :agency_id, :presence => true
   validates :user_id, :presence => true
@@ -22,11 +22,7 @@ class Contact < ActiveRecord::Base
     contacts = Contact.where("user_id = ?", user_id).order('last_name')
     agencies = []
     contacts.each do |contact|
-      if contact.agency_id == nil
-        agencies << nil
-      else
-        agencies << Agency.find(contact.agency_id)
-      end
+      agencies << Agency.find(contact.agency_id)
     end
     return Contact.compile_list(agencies, contacts, user_id)
   end
@@ -35,20 +31,12 @@ class Contact < ActiveRecord::Base
     if agencies == nil
       agencies = []
       contacts.each do |contact|
-        if contact.agency_id == nil
-          agencies << nil
-        else
-          agencies << Agency.find(contact.agency_id)
-        end
+        agencies << Agency.find(contact.agency_id)
       end
-    else #if contacts == nil
+    elsif contacts == nil
       contacts = []
       agencies.each do |agency|
-        if agency == nil
-          contacts << Contact.where(user_id: user_id, agency_id: nil).order('last_name')
-        else
-          contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
-        end
+        contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
       end
       contacts.flatten!
     end
@@ -56,12 +44,3 @@ class Contact < ActiveRecord::Base
   end
 
 end
-
-# @contacts = Contact.search(params[:search])
-# @agencies = []
-# @contacts.each do |contact|
-#   @agencies << Agency.find(contact.agency_id)
-# end
-# @contact_list = @contacts.zip(@agencies)
-
- # it { should_not allow_mass_assignment_of(:password) }

@@ -3,13 +3,14 @@
   <%= form_for @contact, :url => {:action => :create}, :html => {:class => "/contact/create"} do |f| %>
     <%= f.hidden_field :agency_id, :value => @agency.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :agency_name, :value => @agency.name %>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %><br />
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %><br />
     <%= f.label :phone %><br />
     <%= f.text_field :phone %><br />
-    <%= f.label :notes %><br />
+    <%= f.label :notes, "Notes on your contact or the agency they are with:" %><br />
     <%= f.text_area :notes, :size => "24x6" %><br />
     <div class="actions">
       <%= f.submit %>

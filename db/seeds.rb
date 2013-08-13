@@ -65,20 +65,22 @@ require 'faker'
 
 # # Contacts
 
-# 35.times do
+# 6.times do
 #   first_name = Faker::Name.first_name
 #   last_name = Faker::Name.last_name
 #   phone = Faker::PhoneNumber.phone_number
 #   text = Faker::Lorem.paragraph
-#   agency_id = rand(15) + 1
 #   user_id = (37..46).to_a.sample
+#   agency_id = (21..36).to_a.sample()
+#   agency_name = Agency.find(agency_id).name
 
-#   Contact.create(:user_id => user_id,
+#   Contact.create(:user_id => 28,
 #                  :agency_id => agency_id,
 #                  :first_name => first_name,
 #                  :last_name => last_name,
 #                  :phone => phone,
-#                  :notes => text
+#                  :notes => text,
+#                  :agency_name => agency_name
 #                 )
 # end
 
@@ -97,11 +99,11 @@ require 'faker'
 #              )
 # end
 
-# User.create!(name: "Hannah Winter", email: "han@me.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "hannah@han.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "han@nah.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "han@han.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "han@awesome.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "hannah@hannah.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "han@hannah.com", password: "hannah", agency_id: 3)
-# User.create!(name: "Hannah Winter", email: "han@hahaha.com", password: "hannah", agency_id: 3)
+# User.create!(name: "Hannah Winter", email: "han@me.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "hannah@han.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "han@nah.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "han@han.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "han@awesome.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "hannah@hannah.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "han@hannah.com", password: "hannah", agency_id: 22)
+# User.create!(name: "Hannah Winter", email: "han@hahaha.com", password: "hannah", agency_id: 22)

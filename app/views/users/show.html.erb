@@ -19,8 +19,6 @@
 </div>
 <% @contact_list.each do |contact, agency| %>
   <%= javascript_tag "activeContact('#{contact.last_name[0]}')" %>
-  <% if agency == nil %>
-
     <div id="c_<%= contact.last_name[0] %>"></div>
     <div id="c_<%= contact.id %>"></div>
     <div class="bkg" >
@@ -28,31 +26,7 @@
         <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
       </div>
       <div class="bkg main">
-        <p>Your contact's agency information has been deleted from Resourceful.</p>
-        <p><%= contact.phone %></p>
-        <p><%= contact.notes %></p>
-        <p>
-          <%= link_to "Share this Contact", share_path(:id => contact.id) %>
-        </p>
-        <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
-      </div>
-    </div>
-
-  <% else %>
-    <div id="c_<%= contact.last_name[0] %>"></div>
-    <div id="c_<%= contact.id %>"></div>
-    <div class="bkg" >
-      <div id="color">
-        <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
-      </div>
-      <div class="bkg main">
-        <dl class="tags">
-          <dt>Agency tags:</dt>
-          <% agency.tag.split(",").each do |tag| %>
-            <dd><%= tag %></dd>
-          <% end %>
-        </dl>
-        <p><%= agency.name %></p>
+        <p><%= contact.agency_name %></p>
         <p><%= contact.phone %></p>
         <p><%= contact.notes %></p>
         <p>
@@ -62,7 +36,6 @@
       </div>
     </div>
   <% end %>
-<% end %>
 <div id="bottom-spacer"></div>
 <div id="bottom-bar">
   <p id="bottom-nav"><%= link_to "Home", "/" %> | <%= link_to "Top of Page", "/top", :class=>"top"%> | <%= link_to "Show all of my Contacts", "/users" %></p>

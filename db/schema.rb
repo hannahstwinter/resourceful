@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813191309) do
+ActiveRecord::Schema.define(:version => 20130813210917) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -33,11 +33,12 @@ ActiveRecord::Schema.define(:version => 20130813191309) do
     t.integer  "user_id"
     t.integer  "agency_id"
     t.text     "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "phone"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "agency_name"
   end
 
   add_index "contacts", ["agency_id"], :name => "index_contacts_on_agency_id"
