@@ -2,11 +2,11 @@
 
 <div class="resource-list">
   <% @agencies.each do |agency| %>
-    <div id="bkg" class="list">
+    <div class="bkg list">
       <div id="color">
         <p><%= link_to agency.name, agency_path(:id => agency.id) %></p>
       </div>
-      <div id="bkg" class="main">
+      <div class="bkg main">
         <dl class="tags">
           <dt>Agency Tags:</dt>
           <% agency.tag.split(",").each do |tag| %>

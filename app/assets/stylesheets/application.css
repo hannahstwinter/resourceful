@@ -107,36 +107,22 @@ h3 {
   color: #2C3E50;
 }
 
-ul#contact-nav {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  list-style-type: none;
-  background-color: #3498db;
-  margin: 20px;
-  width: 72%;
-}
-
-ul#contact-nav li {
-  display: inline-block;
-  padding: 9px;
-}
-
-div#no-bkg {
+div.no-bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
   padding: 0px 5px 5px 20px;
   margin: 0 auto;
 }
 
-div#no-bkg.form {
+div.no-bkg.form {
   padding: 20px 5px 5px 20px;
 }
 
-div#bkg.list {
-  padding: 0 0 15px 0;
+div.bkg.list {
+  padding: 0 0 1px 0;
 }
 
-div#bkg {
+div.bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
   background-color: #95A5A6;
@@ -151,9 +137,8 @@ div#color {
   padding: 1px 0 1px 30px;
 }
 
-div#bkg.main {
-  padding: 10px 30px 15px 30px;
-  margin: 20px;
+div.bkg.main {
+  padding: 0px 10px 0px 25px;
 }
 
 div#label {
@@ -230,10 +215,10 @@ div#delete a:hover {
   display: none;
 }
 
-div.field_with_errors {
+/*div.field_with_errors {
   margin:0;
   padding:0;
-}
+}*/
 
 div#bottom-spacer {
   height: 47px;
