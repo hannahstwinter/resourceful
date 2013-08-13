@@ -6,41 +6,12 @@ class Contact < ActiveRecord::Base
   validates :user_id, :numericality => true
   validates :agency_id, :numericality => true
 
-  def self.search(search, search_by, user_id)
-    if search_by == 'agency'
-      agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
-      return Contact.compile_list(agencies, nil, user_id)
-    elsif search_by == 'contact'
-      contacts = Contact.where(user_id: user_id).where('first_name like ? OR last_name like ?', "%#{search}%", "%#{search}%").order('last_name')
-      return Contact.compile_list(nil, contacts, user_id)
-    else
-      return Contact.display(user_id)
-    end
+  def self.search(search, user_id)
+    contacts = Contact.where(user_id: user_id).where('first_name like ? OR last_name like ? OR agency_name like ? OR notes like ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").order('last_name')
   end
 
   def self.display(user_id)
     contacts = Contact.where("user_id = ?", user_id).order('last_name')
-    agencies = []
-    contacts.each do |contact|
-      agencies << Agency.find(contact.agency_id)
-    end
-    return Contact.compile_list(agencies, contacts, user_id)
-  end
-
-  def self.compile_list(agencies, contacts, user_id)
-    if agencies == nil
-      agencies = []
-      contacts.each do |contact|
-        agencies << Agency.find(contact.agency_id)
-      end
-    elsif contacts == nil
-      contacts = []
-      agencies.each do |agency|
-        contacts << Contact.where(user_id: user_id, agency_id: agency.id).order('last_name')
-      end
-      contacts.flatten!
-    end
-    return contacts.zip(agencies)
   end
 
 end
