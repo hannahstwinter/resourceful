@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :agency_id
+  attr_accessible :name, :email, :password, :password_confirmation, :agency_id, :authz
   has_secure_password
   has_many :votes
   has_many :contacts
@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email)
     find_by_email(email).try(:authenticate, password)
+  end
+
+  def self.role?(user)
+    user.authz
   end
 
 end
