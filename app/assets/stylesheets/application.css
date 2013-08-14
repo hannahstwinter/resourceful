@@ -199,12 +199,10 @@ div#delete {
   color: #2C3E50;
   background-color: #e74c3c;
   padding: 1px 0px 1px 20px;
+  margin-bottom: 15px;
 }
 
 div#delete a {
-  text-decoration: none;
-  font-family: arial,sans serif;
-  font-weight: bold;
   color: #2C3E50;
 }
 
@@ -215,11 +213,6 @@ div#delete a:hover {
 .hidden {
   display: none;
 }
-
-/*div.field_with_errors {
-  margin:0;
-  padding:0;
-}*/
 
 div#bottom-spacer {
   height: 47px;
@@ -243,20 +236,3 @@ a.inactive {
   pointer-events: none;
   cursor: default;
 }
-
-/*flat ui colors:
-turquoise:   #1abc9c
-emerald:     #2ecc71
-peter river: #3498db
-amethyst:    #9b59b6 3: #B37FC7;
-sunflower:   #f1c40f 3: #F5D451;
-orange:      #f39c12 3: #F6B651;
-carrot:      #e67e22 3: #E98935;
-pumpkin:     #d35400 3: #FF6C0A;
-alizarin:    #e74c3c
-pomegranate: #c0392b 3: #D96659;
-*/
-
-
-
-
