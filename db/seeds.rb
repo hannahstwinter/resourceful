@@ -48,6 +48,7 @@ require 'faker'
 #   score1 = rand(25)
 #   score2 = rand(25)
 #   tags = tag_array.sample(3).join(",")
+#   url = Faker::Internet.domain_name
 
 #   agency = Agency.create( :name => name,
 #                           :street => street,
@@ -59,7 +60,8 @@ require 'faker'
 #                           :in_house_rating => score,
 #                           :overall_rating => score1,
 #                           :client_rating => score2,
-#                           :tag => tags
+#                           :tag => tags,
+#                           :url => url
 #                           )
 # end
 

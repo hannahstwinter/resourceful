@@ -9,11 +9,11 @@
         <dd><%= tag %></dd>
       <% end %>
     </dl>
+    <% if @agency.url %>
+      <p><a href="http://<%= @agency.url %>"><%= @agency.url %></a></p>
+    <% end %>
     <p id="short-description"><%= @agency.short_description %></p>
     <p id="phone">Phone: <%= @agency.phone %></p>
-    <% if @agency.url %>
-      <p>Agency website: <%= @agency.url %></p>
-    <% end %>
     <p id="address"><%= @agency.street %><br />
     <%= @agency.city %>, <%= @agency.state %></p>
     <p id="long-description"><%= @agency.long_description %></p>

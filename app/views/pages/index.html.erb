@@ -13,14 +13,18 @@
             <dd><%= tag %></dd>
           <% end %>
         </dl>
+        <% if agency.url %>
+          <p><a href="http://<%= agency.url %>"><%= agency.url %></a></p>
+        <% end %>
         <p id="short-description"><%= agency.short_description %></p>
         <p id="phone">Phone: <%= agency.phone %></p>
         <p id="address"><%= agency.street %><br />
         <%= agency.city %>, <%= agency.state %></p>
         <% if current_user %>
-          <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
           <% if @contacts.has_key?(agency.id) %>
-            <br/><br/><%= link_to 'You Have a Contact Here!', "/users/#c_#{@contacts[agency.id]}", :class => "uc-jump" %>
+            <%= link_to 'You Have a Contact Here', "/users/#c_#{@contacts[agency.id]}", :class => "uc-jump" %> |           <%= link_to 'Add another Contact', "/contact/" + agency.id.to_s, :class => "add-link" %>
+          <% else %>
+            <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
           <% end %>
         <% end %>
       </div>
