@@ -8,7 +8,7 @@ class SignupsController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       Mailer.welcome_email(@user).deliver
-      flash[:notice] = "Your account has been created. Thanks for signing up!"
+      flash[:notice] = "Your account has been created. Visit the User Page to authorize your account."
       session[:user_id] = @user.id
       redirect_to :root
     else

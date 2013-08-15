@@ -8,7 +8,7 @@ module ApplicationHelper
       color = '#2ecc71'
     elsif flash[:alert]
       text = flash[:alert]
-      color = '#e74c3c'
+      color = '#F1C40F'
     else
       text = flash[:error]
       color = '#e74c3c'

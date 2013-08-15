@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
 
 end
 
+#   <%= f.label :agency_select, "Agency affiliation:" %>
+#   <%= f.select :agency_select, options_for_select([["None", 0], ["NRVCS", 1]]) %>
+
+#   <%= f.label :access_key, "Agency access key:" %>
+#   <%= f.text_field :access_key %>
+
  # it { should_not allow_mass_assignment_of(:password) }

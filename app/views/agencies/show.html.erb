@@ -43,7 +43,7 @@
           <p>There aren't any reviews for <%= @agency.name %> yet.</p>
         </div>
       <% end %>
-      <% if current_user %>
+      <% if can? :create, @review %>
         <%= render "reviews/new" %>
       <% end %>
     </div>

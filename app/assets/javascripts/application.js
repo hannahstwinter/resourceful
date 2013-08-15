@@ -24,6 +24,10 @@ function activeContact(elID) {
   $(el).removeClass("inactive");
 }
 
+function agencyKeyToggle() {
+  $("#agency-key").toggleClass("hidden");
+}
+
 $(document).ready(function(){
 
   $('div#color.clickable').click(function(){
@@ -38,6 +42,23 @@ $(document).ready(function(){
   $('a.top').click(function(e){
     e.preventDefault();
     document.getElementById("head").scrollIntoView();
+  });
+
+  var counter = 0
+
+  $("#agency_select").change(function(e){
+    e.preventDefault();
+    if (counter==0)
+    {
+      agencyKeyToggle();
+      counter++;
+    }
+    if ($("select option:selected").text() == "None")
+    {
+      agencyKeyToggle();
+      counter = 0;
+    }
+
   });
 
   // $('a.uc-jump').click(function(e){
