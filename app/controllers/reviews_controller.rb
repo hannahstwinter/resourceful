@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(params[:review])
     agency = Agency.find(@review.agency_id)
     if @review.save
-      flash[:notice] = "Your review has been saved!"
+      flash[:notice] = "Your review has been saved."
       redirect_to "/agencies/#{agency.id}"
     else
       flash[:error] = "Sorry, but there was an error in adding your review."

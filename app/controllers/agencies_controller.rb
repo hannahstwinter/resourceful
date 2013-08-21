@@ -10,7 +10,7 @@ class AgenciesController < ApplicationController
     @similar = Agency.where('name LIKE ?', params[:agency][:name])
     if @similar.empty?
       if @agency.save
-        flash[:notice] = "Agency added!"
+        flash[:notice] = "Agency added."
         redirect_to root_url
       else
         errors = []

@@ -4,6 +4,10 @@ one:
   user_id: 1
   agency_id: 1
   notes: MyText
+  phone: MyString
+  first_name: MyString
+  last_name: MyString
+  agency_name: MyString
 
 two:
   user_id: 1

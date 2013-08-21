@@ -8,6 +8,15 @@ class Ability
 		else
 			can :read, :all
 		end
+
+		# if user.role? == :admin
+		# 	can :manage, :all
+		# elsif user.role? == :basic
+		# 	can :manage, Review
+		# else
+		# 	can :read, :all
+		# end
+
 	end
 
 		# Define abilities for the passed in user here. For example:

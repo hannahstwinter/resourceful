@@ -15,24 +15,22 @@ class Agency < ActiveRecord::Base
   validates :phone, :format => { :with => /^.?\d{3}.?\d{3}.?\d{4}/,
   :message => "Invalid phone number format" }
 
-  def self.search(search, user_contacts, current_user)
-    @agencies = Array.new
-    agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
-    if search && current_user != nil
-      if user_contacts != nil
-        agencies.each do |agency|
-          if user_contacts.has_key?(agency.id)
-            @agencies << agency
-          end
+  def self.search(search, current_user, contact_agency_ids)
+    if search && current_user
+      @agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
+      @agencies.each do |agency|
+        if contact_agency_ids.has_value?(agency.id)
+          @agencies.unshift(agency)
         end
+        # @agencies.uniq!
       end
-      @agencies += agencies
-      @agencies.uniq!
+    elsif search
+      @agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
     else
       @agencies = Agency.order("created_at DESC").limit(5)
     end
-    return @agencies
   end
+
 end
 
  # it { should_not allow_mass_assignment_of(:password) }

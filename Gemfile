@@ -18,6 +18,9 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 2.0"
   gem "sqlite3-ruby"
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "factory_girl_rails"
 end
 
 group :production do

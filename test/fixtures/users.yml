@@ -5,7 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {}
-# column: value
-#
+  name: MyString
+  email: MyString
+  password_digest: MyString
+  agency_id: 1
 two: {}
 #  column: value

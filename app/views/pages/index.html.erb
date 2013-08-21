@@ -21,10 +21,10 @@
         <p id="address"><%= agency.street %><br />
         <%= agency.city %>, <%= agency.state %></p>
         <% if current_user %>
-          <% if @contacts.has_key?(agency.id) %>
-            <%= link_to 'You Have a Contact Here', "/users/#c_#{@contacts[agency.id]}", :class => "uc-jump" %> |           <%= link_to 'Add another Contact', "/contact/" + agency.id.to_s, :class => "add-link" %>
+          <% if @contact_agency_ids.has_value?(agency.id) %>
+            <%= link_to 'You Have a Contact Here', "/users/#c_#{@contact_agency_ids.key(agency.id)}" %> |           <%= link_to 'Add another Contact', "/contact/#{agency.id}", :class => "add-link" %>
           <% else %>
-            <%= link_to 'Add to Contacts', "/contact/" + agency.id.to_s, :class => "add-link" %>
+            <%= link_to 'Add to Contacts', "/contact/#{agency.id}", :class => "add-link" %>
           <% end %>
         <% end %>
       </div>

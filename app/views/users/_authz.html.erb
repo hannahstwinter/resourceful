@@ -1,16 +1,21 @@
-<div class="no-bkg form authz">
-  <h3>Enter your agency authorization information:</h3>
-  <%= form_tag ("/user/authz") do %>
-    <div class="field">
-      <%= label_tag :agency_select, "Agency affiliation:" %>
-      <%= select_tag :agency_select, options_for_select([["None", 0], ["NRVCS", 37]]) %>
-    </div>
-    <div id="agency-key" class="field hidden">
-      <%= label_tag :access_key, "Agency access key:" %>
-      <%= text_field_tag :access_key %>
-    </div>
-    <div class="action">
-      <%= submit_tag("Submit") %>
-    </div>
-  <% end %>
+<div class="bkg">
+  <div id="color"><p><a onclick="slideDownAuthz()">Authorization</a></p></div>
+  <div id="authz">
+    <h3>Enter your agency authorization information:</h3>
+    <%= form_tag ("user/authz") do %>
+      <div class="field">
+        <%= label_tag :agency_select, "Agency affiliation:" %><br/>
+        <%= select_tag :agency_select, options_for_select([["None", 0], ["NRVCS", 37]]) %>
+      </div>
+      <div id="agency-key" class="hidden">
+        <div class="field">
+          <%= label_tag :access_key, "Agency access key:" %><br/>
+          <%= text_field_tag :access_key %>
+        </div>
+        <div class="action">
+          <%= submit_tag("Submit") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

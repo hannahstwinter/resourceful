@@ -15,10 +15,15 @@ class UsersController < ApplicationController
   end
 
   def authz
-    @user = current_user
-    if params[:access_key] == ENV["NRVCS_KEY"]
-      @user.update_attribute("authz", "NRVCS")
-      flash[:notice] = "You are now authorized to add and edit agencies to Resourceful!"
+    user = current_user
+    if params[:access_key] == ENV["NRVCS_ADMIN_KEY"]
+      user.authz = :admin
+      user.save
+      flash[:notice] = "You are now authorized to add and edit agencies to Resourceful."
+    elsif params[:access_key] == ENV["NRVCS_BASIC_KEY"]
+      user.authz = :basic
+      user.save
+      flash[:notice] = "You are now authorized to review agencies on Resourceful."
     else
       flash[:alert] = "Your authorization failed."
     end

@@ -25,7 +25,11 @@ function activeContact(elID) {
 }
 
 function agencyKeyToggle() {
-  $("#agency-key").toggleClass("hidden");
+  $("#agency-key").slideToggle();
+}
+
+function slideDownAuthz(){
+  $("#authz").animate({height: "125"}, 1500);
 }
 
 $(document).ready(function(){
@@ -51,11 +55,13 @@ $(document).ready(function(){
     if (counter==0)
     {
       agencyKeyToggle();
+      $("#authz").animate({height: "185"});
       counter++;
     }
     if ($("select option:selected").text() == "None")
     {
       agencyKeyToggle();
+      $("#authz").animate({height: "125"});
       counter = 0;
     }
 

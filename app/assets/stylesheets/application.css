@@ -236,3 +236,9 @@ a.inactive {
   pointer-events: none;
   cursor: default;
 }
+
+div#authz {
+  padding-left: 20px;
+  height: 0px;
+  overflow: hidden;
+}
