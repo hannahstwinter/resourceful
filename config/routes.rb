@@ -23,7 +23,7 @@ Resourceful::Application.routes.draw do
   post "share" => "share#post"
   post "email" => "email#post"
   post "agencies/:id" => "agencies#update"
-  post "user/authz" => "users#authz"
+  post "user/authz" => "users#authorization"
 
   resources :reviews
   resources :agency

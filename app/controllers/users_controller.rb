@@ -14,15 +14,11 @@ class UsersController < ApplicationController
     @alphabet_array = ('A'..'Y').to_a
   end
 
-  def authz
-    user = current_user
-    if params[:access_key] == ENV["NRVCS_ADMIN_KEY"]
-      user.authz = :admin
-      user.save
+  def authorization
+    user = User.authorize(current_user.id, params[:access_key])
+    if user.authz == "admin"
       flash[:notice] = "You are now authorized to add and edit agencies to Resourceful."
-    elsif params[:access_key] == ENV["NRVCS_BASIC_KEY"]
-      user.authz = :basic
-      user.save
+    elsif user.authz == "basic"
       flash[:notice] = "You are now authorized to review agencies on Resourceful."
     else
       flash[:alert] = "Your authorization failed."

@@ -1,16 +1,30 @@
+<% if @errors %>
+  <% @errors.each do |field, error| %>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+          $(".<%=field%>").css("border", "solid 2px #C0392B")
+          $(".<%=field%>").css("box-shadow", "0 0 8px rgba(192,57,43,1)")
+        });
+    </script>
+  <% end %>
+<% end %>
+
 <% if can? :create, @agency %>
   <div class="no-bkg main">
-    <% if @agencies %>
+    <% if @similar && !@similar.empty? %>
       <div id="similar">
         <p>There is an agency in our database with that name already:</p>
-        <% @agencies.each do |agency| %>
+        <% @similar.each do |agency| %>
           <%= agency.name %><br />
           <%= agency.street %><br />
           <%= agency.city %>, <%= agency.state %><br />
           <%= agency.phone %><br />
           <%= agency.url %><br />
+          <p>If this is not the same agency, edit the agency name then click the 'Save Agency' button below once more.</p>
+          <% if can? :update, @agency %>
+            <p>If this is the same agency but the agency information has changed, please <%= link_to "Edit Agency Information", "agencies/#{agency.id}/edit" %></p>
+          <% end %>
         <% end %>
-        <p>If this is not the same agency, edit the agency name then click the 'Save Agency' button below once more.</p>
       </div>
     <% end %>
     <% if @agencies.nil? %>
@@ -19,23 +33,30 @@
     <%= form_for @agency do |f| %>
       <div class="field">
         <%= f.label :name %><br />
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :class => "name" %>
       </div>
       <div class="field">
         <%= f.label :street %><br />
-        <%= f.text_field :street %>
+        <%= f.text_field :street, :class => "street" %>
       </div>
       <div class="field">
         <%= f.label :city %><br />
-        <%= f.text_field :city %>
+        <%= f.text_field :city, :class =>"city" %>
       </div>
       <div class="field">
         <%= f.label :state %><br />
-        <%= f.text_field :state %>
+        <%= f.text_field :state, :class => "state" %>
       </div>
       <div class="field">
+        <% if @errors && @errors.has_key?(:phone) && @errors[:phone].any? {|word| word.starts_with?("Invalid")} %>
+          <p class="phone-error">
+            Invalid phone format. Try this instead: XXX-XXX-XXXX<br/>
+            Place any extension at the end. Eg: XXX-XXX-XXXX-XXXX
+          </p>
+        <% end %>
         <%= f.label :phone %><br />
-        <%= f.text_field :phone %>
+        <%= f.text_field :phone, :class => "phone" %>
+
       </div>
       <div class="field">
         <%= f.label :url, "Agency website" %><br />
@@ -43,15 +64,15 @@
       </div>
       <div class="field">
         <%= f.label :short_description, 'Short description, one or two sentences summarizing the agency' %><br />
-        <%= f.text_area :short_description, :size => "24x6" %>
+        <%= f.text_area :short_description, :size => "24x6", :class => "short_description" %>
       </div>
       <div class="field">
         <%= f.label :long_description, 'Long description, describing services the agency offers' %><br />
-        <%= f.text_area :long_description, :size => "24x12" %>
+        <%= f.text_area :long_description, :size => "24x12", :class => "long_description" %>
       </div>
       <div class="field">
         <%= f.label :tag, 'Tags, separated by commas (eg: childcare,GLBTQ,alcoholism)' %><br />
-        <%= f.text_field :tag %>
+        <%= f.text_field :tag, :class => "tag" %>
       </div>
       <div class="actions">
         <%= f.submit %>

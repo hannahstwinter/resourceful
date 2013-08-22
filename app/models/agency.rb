@@ -22,7 +22,7 @@ class Agency < ActiveRecord::Base
         if contact_agency_ids.has_value?(agency.id)
           @agencies.unshift(agency)
         end
-        # @agencies.uniq!
+        @agencies.uniq!
       end
     elsif search
       @agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
@@ -34,3 +34,6 @@ class Agency < ActiveRecord::Base
 end
 
  # it { should_not allow_mass_assignment_of(:password) }
+
+
+

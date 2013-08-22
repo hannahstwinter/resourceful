@@ -21,8 +21,9 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @contact = Contact.find(params[:id])
-    Contact.update(params[:id], params[:contact])
+    @contact = Contact.update(params[:id], params[:contact])
+    # @contact = Contact.find(params[:id])
+    # Contact.update(params[:id], params[:contact])
     flash[:notice] = "Your contact, #{@contact.first_name} #{@contact.last_name} has been updated."
     redirect_to "/users"
   end

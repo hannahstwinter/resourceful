@@ -17,7 +17,7 @@ describe Agency do
   it "returns the users search results" do
     # @agencies = (1..3).collect { Factory(:agency) }
     user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome", authz: "admin")
-    expect(Agency.search()).to eq()
+    expect(Agency.search("tag", user)).to eq(false)
     user.destroy
   end
 

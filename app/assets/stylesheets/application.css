@@ -242,3 +242,8 @@ div#authz {
   height: 0px;
   overflow: hidden;
 }
+
+p.phone-error {
+  font-weight: bold;
+  color: #C0392B;
+}

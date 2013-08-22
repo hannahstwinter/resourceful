@@ -13,21 +13,15 @@ class AgenciesController < ApplicationController
         flash[:notice] = "Agency added."
         redirect_to root_url
       else
-        errors = []
-        @agency.errors.messages.each do |field, message|
-          errors << field.to_s.gsub("_", " ") unless field == :phone
-          if field == :phone
-            # handle it differently
-          end
-        end
-        flash.now[:error] = "The fields #{errors.join(', ')} cannot be left blank."
+        # @agency.errors.messages.each do |field, message|
+          # JAVASCRIPT TO CHANGE BKG COLOR OF BAD FIELDS TO RED
+        # end
+        @errors = @agency.errors.messages
+
+        flash.now[:error] = "We need more information about the agency, please continue filling out the form."
         render :new
       end
     else
-      @agencies = []
-      @similar.each do |agency|
-        @agencies << agency
-      end
       render :new
     end
   end

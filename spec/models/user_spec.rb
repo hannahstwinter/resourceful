@@ -11,11 +11,17 @@ describe User do
   it { should validate_presence_of(:password) }
   it { should_not allow_value("bad_email").for(:email) }
   it { should allow_value("good@email.com").for(:email) }
-  # it { should_not allow_mass_assignment_of(:password) }
 
   it "returns the role of the user" do
     user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome", authz: "admin")
-    expect(user.authz).to eq("admin")
+    expect(User.role?(user)).to eq("admin")
+    user.destroy
+  end
+
+  it "verifies user authorization and assigns authz" do
+    user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome")
+    return_user = User.authorize(user.id, "nrvcsbasic")
+    expect(return_user.authz).to eq("basic")
     user.destroy
   end
 

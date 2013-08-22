@@ -19,12 +19,19 @@ class User < ActiveRecord::Base
     user.authz
   end
 
+  def self.authorize(user_id, access_key)
+    user = User.find(user_id)
+    if access_key == ENV["NRVCS_ADMIN_KEY"]
+      user.authz = "admin"
+      user.save
+      user
+    elsif access_key == ENV["NRVCS_BASIC_KEY"]
+      user.authz = "basic"
+      user.save
+      user
+    end
+  end
+
 end
-
-#   <%= f.label :agency_select, "Agency affiliation:" %>
-#   <%= f.select :agency_select, options_for_select([["None", 0], ["NRVCS", 1]]) %>
-
-#   <%= f.label :access_key, "Agency access key:" %>
-#   <%= f.text_field :access_key %>
 
  # it { should_not allow_mass_assignment_of(:password) }
