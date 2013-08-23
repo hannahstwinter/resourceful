@@ -20,16 +20,11 @@ describe Agency do
     agency2 = Agency.create!(name: "agency2", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "tag", url: "s")
     user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome", authz: "admin")
     expect(Agency.search("tag", user, {})).to eq([agency0, agency2])
-    user.destroy
-    agency0.destroy
-    agency1.destroy
-    agency2.destroy
   end
 
   it "returns agencies with a similar name" do
     agency = Agency.create!(name: "agency", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "t", url: "s")
     expect(Agency.find_similar("agency")).to eq([agency])
-    agency.destroy
   end
 
 end
