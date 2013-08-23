@@ -27,8 +27,8 @@
       <div id="color" class="clickable">
         <p>Click Here to <% if current_user %> Write or <% end %> Read Reviews on <%= @agency.name %></p>
       </div>
-      <% if !@reviews.empty? %>
-        <% @reviews.each do |review| %>
+      <% if !@agency.reviews.empty? %>
+        <% @agency.reviews.each do |review| %>
           <div id="review" class="hidden">
             <% @user = User.find(review.user_id) %>
             <%= @user.name %> writes:<br /><br />

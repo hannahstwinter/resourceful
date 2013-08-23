@@ -15,39 +15,22 @@ describe Agency do
   it { should allow_value("(123-456.1234").for(:phone) }
 
   it "returns the users search results" do
-    # @agencies = (1..3).collect { Factory(:agency) }
+    agency0 = Agency.create!(name: "agency0", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "tag", url: "s")
+    agency1 = Agency.create!(name: "agency1", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "you're it", url: "s")
+    agency2 = Agency.create!(name: "agency2", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "tag", url: "s")
     user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome", authz: "admin")
-    expect(Agency.search("tag", user)).to eq(false)
+    expect(Agency.search("tag", user, {})).to eq([agency0, agency2])
     user.destroy
+    agency0.destroy
+    agency1.destroy
+    agency2.destroy
+  end
+
+  it "returns agencies with a similar name" do
+    agency = Agency.create!(name: "agency", street: "s", city: "s", state: "s", phone: "0000000000", short_description: "t", long_description: "t", tag: "t", url: "s")
+    expect(Agency.find_similar("agency")).to eq([agency])
+    agency.destroy
   end
 
 end
 
-# 25.times do
-#   name = Faker::Company.name
-#   street = Faker::Address.street_address
-#   city = Faker::Address.city
-#   state = Faker::Address.state_abbr
-#   phone = Faker::PhoneNumber.phone_number
-#   short_description = Faker::Lorem.sentence
-#   long_description = Faker::Lorem.paragraph
-#   score = rand(25)
-#   score1 = rand(25)
-#   score2 = rand(25)
-#   tags = tag_array.sample(3).join(",")
-#   url = Faker::Internet.domain_name
-
-#   agency = Agency.create( :name => name,
-#                           :street => street,
-#                           :city => city,
-#                           :state => state,
-#                           :phone => phone,
-#                           :short_description => short_description,
-#                           :long_description => long_description,
-#                           :in_house_rating => score,
-#                           :overall_rating => score1,
-#                           :client_rating => score2,
-#                           :tag => tags,
-#                           :url => url
-#                           )
-# end

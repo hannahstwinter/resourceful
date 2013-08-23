@@ -14,4 +14,11 @@ class Contact < ActiveRecord::Base
     contacts = Contact.where("user_id = ?", user_id).order('last_name')
   end
 
+  def self.update_agency_id(id)
+    contacts = Contact.where(:agency_id => id)
+    contacts.each do |contact|
+      contact.update_attribute(:agency_id, nil)
+    end
+  end
+
 end

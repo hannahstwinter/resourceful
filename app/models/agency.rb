@@ -17,18 +17,22 @@ class Agency < ActiveRecord::Base
 
   def self.search(search, current_user, contact_agency_ids)
     if search && current_user
-      @agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
-      @agencies.each do |agency|
+      agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
+      agencies.each do |agency|
         if contact_agency_ids.has_value?(agency.id)
-          @agencies.unshift(agency)
+          agencies.unshift(agency)
         end
-        @agencies.uniq!
+        agencies.uniq!
       end
     elsif search
-      @agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
+      agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
     else
-      @agencies = Agency.order("created_at DESC").limit(5)
+      agencies = Agency.order("created_at DESC").limit(5)
     end
+  end
+
+  def self.find_similar(name)
+    Agency.where('name LIKE ?', name)
   end
 
 end
