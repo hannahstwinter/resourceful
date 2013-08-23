@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
-
   def new
-    # @review = Review.new
+    @review = Review.new
   end
 
   def create
     @review = Review.new(params[:review])
     agency = Agency.find(@review.agency_id)
+
     if @review.save
       flash[:notice] = "Your review has been saved."
       redirect_to "/agencies/#{agency.id}"
@@ -16,18 +16,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def index
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
     review = Review.find(params[:id])
     agency = Agency.find(review.agency_id)
@@ -35,5 +23,4 @@ class ReviewsController < ApplicationController
     Review.destroy(review.id)
     redirect_to "/agencies/#{agency.id}"
   end
-
 end

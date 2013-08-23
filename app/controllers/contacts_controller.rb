@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def new
     @agency = Agency.find(params[:id])
     @contact = Contact.new
@@ -7,6 +6,7 @@ class ContactsController < ApplicationController
 
   def create
     contact = Contact.new(params[:contact])
+
     if contact.save
       flash[:notice] = "Contact saved to your Contact Book on the User Page."
       redirect_to root_url
@@ -21,15 +21,14 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @contact = Contact.update(params[:id], params[:contact])
-    # @contact = Contact.find(params[:id])
-    # Contact.update(params[:id], params[:contact])
-    flash[:notice] = "Your contact, #{@contact.first_name} #{@contact.last_name} has been updated."
+    contact = Contact.update(params[:id], params[:contact])
+    flash[:notice] = "Your contact, #{contact.first_name} #{contact.last_name} has been updated."
     redirect_to "/users"
   end
 
   def destroy
     @contact = Contact.find(params[:id])
+
     if current_user.id == @contact.user_id
       flash[:notice] = "Your contact, #{@contact.first_name} #{@contact.last_name}, has been deleted."
       Contact.destroy(@contact.id)
@@ -39,8 +38,4 @@ class ContactsController < ApplicationController
       redirect_to root_url
     end
   end
-
-  def index
-  end
-
 end

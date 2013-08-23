@@ -8,6 +8,7 @@ class AgenciesController < ApplicationController
   def create
     @agency = Agency.new(params[:agency])
     @similar = Agency.find_similar(@agency.name)
+
     if @agency.save
       flash[:notice] = "Agency added."
       redirect_to root_url
@@ -39,5 +40,4 @@ class AgenciesController < ApplicationController
     Contact.update_agency_id(agency.id)
     redirect_to root_url
   end
-
 end

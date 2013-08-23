@@ -7,16 +7,16 @@ class ShareController < ApplicationController
   end
 
   def post
-    email = { :recipient => params[:email],
-              :first_name => params[:first_name],
-              :last_name => params[:last_name],
-              :agency => params[:agency],
-              :agency_desc => params[:agency_desc],
-              :phone => params[:phone],
-              :notes => params[:notes],
-              :additional_notes => params[:add_notes],
-              :user => current_user
-    }
+    email = {:recipient => params[:email],
+             :first_name => params[:first_name],
+             :last_name => params[:last_name],
+             :agency => params[:agency],
+             :agency_desc => params[:agency_desc],
+             :phone => params[:phone],
+             :notes => params[:notes],
+             :additional_notes => params[:add_notes],
+             :user => current_user
+            }
 
     Mailer.contact_email(email).deliver
 

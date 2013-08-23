@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def index
     if current_user
       @user = current_user
@@ -9,5 +8,4 @@ class PagesController < ApplicationController
     end
     @agencies = Agency.search(params[:search], @user, @contact_agency_ids)
   end
-
 end

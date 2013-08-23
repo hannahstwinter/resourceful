@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
   def show
     @user = current_user
+
     if !params[:search]
       @contact_list = Contact.display(current_user.id)
     else
@@ -11,11 +11,13 @@ class UsersController < ApplicationController
         flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
       end
     end
+
     @alphabet_array = ('A'..'Y').to_a
   end
 
   def authorization
     user = User.authorize(current_user.id, params[:access_key])
+
     if user.authz == "admin"
       flash[:notice] = "You are now authorized to add and edit agencies to Resourceful."
     elsif user.authz == "basic"
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
     else
       flash[:alert] = "Your authorization failed."
     end
+
     redirect_to users_path
   end
-
 end
