@@ -27,6 +27,7 @@
       <div id="color" class="clickable">
         <p>Click Here to <% if current_user %> Write or <% end %> Read Reviews on <%= @agency.name %></p>
       </div>
+
       <% if !@agency.reviews.empty? %>
         <% @agency.reviews.each do |review| %>
           <div id="review" class="hidden">
@@ -43,12 +44,14 @@
           <p>There aren't any reviews for <%= @agency.name %> yet.</p>
         </div>
       <% end %>
+
       <% if can? :create, @review %>
         <%= render "reviews/new" %>
       <% end %>
     </div>
   </div>
 </div>
+
 <div id="bottom-spacer"></div>
 <div id="bottom-bar">
   <p id="bottom-nav"><%= link_to "Home", "/" %> | <%= link_to "Top of Page", "/top", :class=>"top"%></p>

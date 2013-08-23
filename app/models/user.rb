@@ -33,5 +33,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
- # it { should_not allow_mass_assignment_of(:password) }

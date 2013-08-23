@@ -17,12 +17,10 @@
 <body>
 
 <div class="page-head" id="head">
-
   <ul class="page-nav">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About', about_path %></li>
     <li><%= link_to 'Email', email_path %></li>
-
     <% if current_user %>
       <li><%= link_to('User Page', { :controller => "users", :action => "show" }) %></li>
       <li class="last"><%= link_to 'Signout', signout_path, :method => :delete %></li>
@@ -31,12 +29,10 @@
       <li class="last"><%= link_to 'Signin', signin_path %></li>
     <% end %>
   </ul>
-
   <div class="resourceful">
     <p class="welcome">Welcome to Resourceful</p>
     <p class="slogan">where people and resources meet</p>
   </div>
-
 </div>
 
 <div class="current-user">

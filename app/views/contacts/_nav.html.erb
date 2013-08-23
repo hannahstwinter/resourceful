@@ -1,6 +1,8 @@
 <div class="no-bkg">
+
   <% @alphabet_array.each do |a| %>
     <a href="<%= a %>" class="nav inactive" id="<%= a %>" onclick="showIt('c_<%= a %>')"><%= a %></a> |
   <% end %>
+
   <a href="Z" class="nav inactive" id="Z" onclick="showIt('c_Z')">Z</a>
 </div>

@@ -11,6 +11,7 @@
 
 <% if can? :create, @agency %>
   <div class="no-bkg main">
+
     <% if @similar && !@similar.empty? %>
       <div id="similar">
         <p>There is an agency in our database with that name already:</p>
@@ -21,15 +22,16 @@
           <%= agency.phone %><br />
           <%= agency.url %><br />
           <p>If this is not the same agency, edit the agency name then click the 'Save Agency' button below once more.</p>
+
           <% if can? :update, @agency %>
             <p>If this is the same agency but the agency information has changed, please <%= link_to "Edit Agency Information", "agencies/#{agency.id}/edit" %></p>
           <% end %>
+
         <% end %>
       </div>
     <% end %>
-    <% if @agencies.nil? %>
-      <h3>Enter the information for the agency you wish to add to Resourceful:</h3>
-    <% end %>
+
+    <h3>Enter the information for the agency you wish to add to Resourceful:</h3>
     <%= form_for @agency do |f| %>
       <div class="field">
         <%= f.label :name %><br />
@@ -48,15 +50,16 @@
         <%= f.text_field :state, :class => "state" %>
       </div>
       <div class="field">
+
         <% if @errors && @errors.has_key?(:phone) && @errors[:phone].any? {|word| word.starts_with?("Invalid")} %>
           <p class="phone-error">
             Invalid phone format. Try this instead: XXX-XXX-XXXX<br/>
             Place any extension at the end. Eg: XXX-XXX-XXXX-XXXX
           </p>
         <% end %>
+
         <%= f.label :phone %><br />
         <%= f.text_field :phone, :class => "phone" %>
-
       </div>
       <div class="field">
         <%= f.label :url, "Agency website" %><br />
@@ -80,6 +83,7 @@
     <% end %>
   </div>
 <% end %>
+
 <div id="bottom-spacer"></div>
 <div id="bottom-bar">
   <p id="bottom-nav"><%= link_to "Home", "/" %> | <%= link_to "Top of Page", "/top", :class=>"top"%></p>

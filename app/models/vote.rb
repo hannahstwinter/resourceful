@@ -12,5 +12,3 @@ class Vote < ActiveRecord::Base
   validates :user_agency_id, :numericality => true
   validates :vote, :numericality => true
 end
-
- # it { should_not allow_mass_assignment_of(:password) }
