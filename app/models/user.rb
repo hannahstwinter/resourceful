@@ -22,14 +22,11 @@ class User < ActiveRecord::Base
   def self.authorize(user_id, access_key)
     user = User.find(user_id)
     if access_key == ENV["NRVCS_ADMIN_KEY"]
-      user.authz = "admin"
-      user.save
-      user
+      user.update_attribute(:authz, "admin")
     elsif access_key == ENV["NRVCS_BASIC_KEY"]
-      user.authz = "basic"
-      user.save
-      user
+      user.update_attribute(:authz, "basic")
     end
+    return user
   end
 
 end
