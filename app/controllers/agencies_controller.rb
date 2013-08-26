@@ -36,8 +36,8 @@ class AgenciesController < ApplicationController
   def destroy
     agency = Agency.find(params[:id])
     flash[:notice] = "#{agency.name}'s information has been deleted."
-    Agency.destroy(agency.id)
     Contact.update_agency_id(agency.id)
+    Agency.destroy(agency.id)
     redirect_to root_url
   end
 end

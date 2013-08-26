@@ -20,6 +20,12 @@ describe Contact do
     bob1 = Contact.create!(first_name: "bob", last_name: "b", agency_id: 4, user_id: user.id)
     expect(Contact.display(user.id)).to eq([bob0, bob1])
   end
+
+  it "updates contact.agency_id's to 'nil'" do
+    bobbert = Contact.create!(first_name: "bob", last_name: "a", agency_id: 4, user_id: 33)
+    updated = Contact.update_agency_id(bobbert.agency_id)
+    expect(updated.first.agency_id).to eq(nil)
+  end
 end
 
 

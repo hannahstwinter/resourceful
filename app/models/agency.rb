@@ -13,17 +13,15 @@ class Agency < ActiveRecord::Base
   validates :phone, :presence => true
   validates :name, :uniqueness => true
   validates :phone, :format => { :with => /^.?\d{3}.?\d{3}.?\d{4}/,
-  :message => "Invalid phone number format" }
+            :message => "Invalid phone number format" }
 
   def self.search(search, current_user, contact_agency_ids)
     if search && current_user
       agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
       agencies.each do |agency|
-        if contact_agency_ids.has_value?(agency.id)
-          agencies.unshift(agency)
-        end
-        agencies.uniq!
+        agencies.unshift(agency) if contact_agency_ids.has_value?(agency.id)
       end
+      agencies.uniq!
     elsif search
       agencies = Agency.where('tag like ? OR name like ?', "%#{search}%", "%#{search}%")
     else

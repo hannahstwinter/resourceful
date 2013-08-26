@@ -64,7 +64,6 @@ $(document).ready(function(){
       $("#authz").animate({height: "125"});
       counter = 0;
     }
-
   });
 
   // $('a.uc-jump').click(function(e){
