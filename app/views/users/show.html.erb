@@ -1,33 +1,33 @@
 <div class="no-bkg">
-  <% if @contact_list.empty? %>
-    <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.<h3>
-  <% else %>
-    <p><%= render "contacts/nav" %></p>
-    <p>Search your contact book by name, agency, or notes:</p>
-    <%= form_tag('/users', :method => 'get') do %>
-      <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
-      <%= submit_tag "Search", :name => nil %><br/><br/>
-    <% end %>
-    <%= link_to "Click Here", "/users", class: "bkg" %> to clear out your search results and see all of your contacts.
+<% if @contact_list.nil? %>
+  <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.<h3>
+<% elsif @contact_list %>
+  <p><%= render "contacts/nav" %></p>
+  <p>Search your contact book by name, agency, or notes:</p>
+  <%= form_tag('/users', :method => 'get') do %>
+    <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
+    <%= submit_tag "Search", :name => nil %><br/><br/>
+  <% end %>
+  <%= link_to "Click Here", "/users", class: "bkg" %> to clear out your search results and see all of your contacts.
 </div>
-    <% @contact_list.each do |contact| %>
-      <%= javascript_tag "activeContact('#{contact.last_name[0]}')" %>
-      <div id="c_<%= contact.last_name[0] %>"></div>
-      <div id="c_<%= contact.id %>"></div>
-      <div class="bkg" >
-        <div id="color">
-          <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
-        </div>
-        <div class="bkg main">
-          <p><%= contact.agency_name %></p>
-          <p><%= contact.phone %></p>
-          <p><%= contact.notes %></p>
-          <p>
-            <%= link_to "Share this Contact", share_path(:id => contact.id) %>
-          </p>
-          <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
-        </div>
+  <% @contact_list.each do |contact| %>
+    <%= javascript_tag "activeContact('#{contact.last_name[0].downcase}')" %>
+    <div id="c_<%= contact.last_name[0] %>"></div>
+    <div id="c_<%= contact.id %>"></div>
+    <div class="bkg" >
+      <div id="color">
+        <p id="name"><%= contact.first_name %> <%= contact.last_name %></p>
       </div>
+      <div class="bkg main">
+        <p><%= contact.agency_name %></p>
+        <p><%= contact.phone %></p>
+        <p><%= contact.notes %></p>
+        <p>
+          <%= link_to "Share this Contact", share_path(:id => contact.id) %>
+        </p>
+        <p><%= link_to "Edit Contact's Information", [:edit, contact] %></p>
+      </div>
+    </div>
   <% end %>
 <% end %>
 

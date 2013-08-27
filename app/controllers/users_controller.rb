@@ -3,16 +3,16 @@ class UsersController < ApplicationController
     @user = current_user
 
     if !params[:search]
-      @contact_list = Contact.display(current_user.id)
+      @contact_list = Contact.display(@user.id)
     else
-      @contact_list = Contact.search(params[:search], current_user.id)
+      @contact_list = Contact.search(params[:search], @user.id)
       if @contact_list.empty?
-        @contact_list = Contact.display(current_user.id)
+        @contact_list = Contact.display(@user.id)
         flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
       end
     end
-
-    @alphabet_array = ('A'..'Y').to_a
+    @contact_list = nil if @contact_list.empty?
+    @alphabet_array = ('a'..'y').to_a
   end
 
   def authorization
