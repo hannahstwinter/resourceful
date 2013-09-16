@@ -9,6 +9,19 @@
 require 'rubygems'
 require 'faker'
 
+# NRVCS
+
+Agency.create(:name => "New River Valley Community Services (NRVCS)",
+              :street => "1006 E Main St.",
+              :city => "Pulaski",
+              :state => "Virginia",
+              :short_description => "NRVCS provides crisis & family services, adult recovery & habilitation services, financial & administrative support services." ,
+              :long_description => "New River Valley Community Services (NRVCS) is a public provider of behavioral health services to residents of the New River Valley. The agency serves children, adults and families by providing community-based programs for mental health, intellectual disabilities, substance use disorders, and related prevention services. Also, one of the workers there is really hot. Really, really hot.",
+              :url => "www.nrvcs.org",
+              :phone => "(540)994-5023",
+              :tag => "child,family,rehabilitation,financial,crisis"
+              )
+
 # # Review
 
 # 100.times do
