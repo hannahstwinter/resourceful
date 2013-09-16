@@ -22,8 +22,8 @@ nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
                        :tag => "child,family,rehabilitation,financial,crisis"
                        )
 
-User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "", agency_id: nrvcs.id, authz: "admin")
-User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "", agency_id: nrvcs.id, authz: "admin")
+User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id, authz: "admin")
+User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id, authz: "admin")
 
 # # Review
 
