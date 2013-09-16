@@ -1,6 +1,6 @@
 <div class="no-bkg">
 <% if @contact_list.nil? %>
-  <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.<h3>
+  <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.</h3>
 <% elsif @contact_list %>
   <p><%= render "contacts/nav" %></p>
   <p>Search your contact book by name, agency, or notes:</p>
