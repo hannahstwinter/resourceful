@@ -28,8 +28,14 @@ function agencyKeyToggle() {
   $("#agency-key").slideToggle();
 }
 
+var slideCount = 0;
+
 function slideDownAuthz(){
-  $("#authz").animate({height: "125"}, 1500);
+  if (slideCount==0)
+  {
+    $("#authz").animate({height: "125"}, 1500);
+    slideCount++
+  }
 }
 
 $(document).ready(function(){
