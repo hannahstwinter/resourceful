@@ -75,4 +75,6 @@ Resourceful::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+  config.action_mailer.default_url_options = { :host => "http://morning-island-3194.herokuapp.com/" }
+
 end

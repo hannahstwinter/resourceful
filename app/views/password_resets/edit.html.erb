@@ -1,0 +1,34 @@
+<% if @user.errors.any? %>
+  <% @user.errors.messages.each do |field, error| %>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+          $(".<%=field%>").css("border", "solid 2px #C0392B");
+          $(".<%=field%>").css("box-shadow", "0 0 8px rgba(192,57,43,1)");
+          $(".error").append("<h3><%= field.capitalize %> <%= error[0] %></h3>");
+        });
+    </script>
+  <% end %>
+<% end %>
+
+<div class="no-bkg main">
+  <h3>Reset Password</h3>
+  <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error">
+        <h3>Form is invalid:</h3>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, :class => "password" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update Password" %>
+    </div>
+  <% end %>
+
+</div>

@@ -31,10 +31,10 @@ function agencyKeyToggle() {
 var slideCount = 0;
 
 function slideDownAuthz(){
-  if (slideCount==0)
+  if (slideCount%2==0)
   {
-    $("#authz").animate({height: "125"}, 1500);
-    slideCount++
+    $("#authz").animate({height: "125"}, 750);
+    slideCount++;
   }
 }
 

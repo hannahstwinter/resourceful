@@ -26,4 +26,13 @@ class Mailer < ActionMailer::Base
     mail(:to => ENV["GMAIL_USERNAME"], :subject => "Email from Resourceful User")
   end
 
+  def password_reset(user)
+    @user = user
+    mail(:to => user.email, :subject => "Password Reset")
+  end
+
 end
+
+
+
+

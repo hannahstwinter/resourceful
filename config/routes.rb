@@ -1,4 +1,6 @@
 Resourceful::Application.routes.draw do
+  get "password_resets/new"
+
   root :to => "pages#index"
   resources :pages
 
@@ -28,6 +30,7 @@ Resourceful::Application.routes.draw do
   resources :reviews
   resources :agency
   resources :contacts
+  resources :password_resets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

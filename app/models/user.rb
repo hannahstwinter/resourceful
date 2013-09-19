@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
   validates_presence_of :password, :on => :create
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "address is invalid" }
+  before_create { generate_token(:auth_token) }
 
   def self.authenticate(email)
     find_by_email(email).try(:authenticate, password)
@@ -27,6 +28,19 @@ class User < ActiveRecord::Base
       user.update_attribute(:authz, "basic")
     end
     return user
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    Mailer.password_reset(self).deliver
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
   end
 
 end
