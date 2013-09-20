@@ -21,13 +21,13 @@ class User < ActiveRecord::Base
   end
 
   def self.authorize(id, access_key)
-    user = User.find(id)
+    @user = User.find(id)
     if access_key == ENV["NRVCS_ADMIN_KEY"]
-      user.update_column(:authz, "admin")
+      @user.update_column(:authz, "admin")
     elsif access_key == ENV["NRVCS_BASIC_KEY"]
-      user.update_column(:authz, "basic")
+      @user.update_column(:authz, "basic")
     end
-    return user
+    return @user
   end
 
   def send_password_reset
