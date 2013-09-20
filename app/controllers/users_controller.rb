@@ -16,16 +16,17 @@ class UsersController < ApplicationController
   end
 
   def authorization
-    user = User.authorize(current_user.id, params[:access_key])
-
-    if user.authz == "admin"
-      flash[:notice] = "You are now authorized to add and edit agencies to Resourceful."
-    elsif user.authz == "basic"
-      flash[:notice] = "You are now authorized to review agencies on Resourceful."
-    else
-      flash[:alert] = "Your authorization failed."
+    eval = proc do
+      if @user.authz == "admin"
+        flash[:notice] = "You are now authorized to add and edit agencies to Resourceful."
+      elsif @user.authz == "basic"
+        flash[:notice] = "You are now authorized to review agencies on Resourceful."
+      else
+        flash[:alert] = "Your authorization failed."
+      end
     end
-
+    @user = User.authorize(current_user.id, params[:access_key])
+    eval
     redirect_to users_path
   end
 end
