@@ -11,19 +11,19 @@ require 'faker'
 
 # # NRVCS
 
-nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
-                       :street => "1006 E Main St.",
-                       :city => "Pulaski",
-                       :state => "Virginia",
-                       :short_description => "NRVCS provides crisis & family services, adult recovery & habilitation services, financial & administrative support services." ,
-                       :long_description => "New River Valley Community Services (NRVCS) is a public provider of behavioral health services to residents of the New River Valley. The agency serves children, adults and families by providing community-based programs for mental health, intellectual disabilities, substance use disorders, and related prevention services. Also, one of the workers there is really hot. Really, really hot.",
-                       :url => "www.nrvcs.org",
-                       :phone => "(540)994-5023",
-                       :tag => "child,family,rehabilitation,financial,crisis"
-                       )
+# nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
+#                        :street => "1006 E Main St.",
+#                        :city => "Pulaski",
+#                        :state => "Virginia",
+#                        :short_description => "NRVCS provides crisis & family services, adult recovery & habilitation services, financial & administrative support services." ,
+#                        :long_description => "New River Valley Community Services (NRVCS) is a public provider of behavioral health services to residents of the New River Valley. The agency serves children, adults and families by providing community-based programs for mental health, intellectual disabilities, substance use disorders, and related prevention services. Also, one of the workers there is really hot. Really, really hot.",
+#                        :url => "www.nrvcs.org",
+#                        :phone => "(540)994-5023",
+#                        :tag => "child,family,rehabilitation,financial,crisis"
+#                        )
 
-User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id)
-User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id)
+# User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id)
+# User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id)
 
 # # Review
 
