@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
     user.authz
   end
 
-  def self.authorize(user_id, access_key)
-    user = User.find(user_id)
+  def self.authorize(id, access_key)
+    user = User.find(id)
     if access_key == ENV["NRVCS_ADMIN_KEY"]
       user.update_column(:authz, "admin")
     elsif access_key == ENV["NRVCS_BASIC_KEY"]

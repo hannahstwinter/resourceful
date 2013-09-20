@@ -11,35 +11,35 @@ require 'faker'
 
 # # NRVCS
 
-nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
-                       :street => "1006 E Main St.",
-                       :city => "Pulaski",
-                       :state => "Virginia",
-                       :short_description => "NRVCS provides crisis & family services, adult recovery & habilitation services, financial & administrative support services." ,
-                       :long_description => "New River Valley Community Services (NRVCS) is a public provider of behavioral health services to residents of the New River Valley. The agency serves children, adults and families by providing community-based programs for mental health, intellectual disabilities, substance use disorders, and related prevention services.",
-                       :url => "www.nrvcs.org",
-                       :phone => "(540)994-5023",
-                       :tag => "child,family,rehabilitation,financial,crisis"
-                       )
+# nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
+#                        :street => "1006 E Main St.",
+#                        :city => "Pulaski",
+#                        :state => "Virginia",
+#                        :short_description => "NRVCS provides crisis & family services, adult recovery & habilitation services, financial & administrative support services." ,
+#                        :long_description => "New River Valley Community Services (NRVCS) is a public provider of behavioral health services to residents of the New River Valley. The agency serves children, adults and families by providing community-based programs for mental health, intellectual disabilities, substance use disorders, and related prevention services.",
+#                        :url => "www.nrvcs.org",
+#                        :phone => "(540)994-5023",
+#                        :tag => "child,family,rehabilitation,financial,crisis"
+#                        )
 
-User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id)
-User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id)
+# User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id)
+# User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id)
 
 # # Review
 
 # 100.times do
 #   body = Faker::Lorem.paragraph
-#   agency_id = rand(14) + 1
-#   user_id = rand(9) + 1
+#   agency_id = rand(25) + 1
+#   user_id = rand(2) + 1
 #   review = Review.create( :user_id => user_id,
 #                           :agency_id => agency_id,
 #                           :body => body
 #                           )
 # end
 
-# # Agency
+# # # Agency
 
-# tag_array = [ 'children',
+# tag_array = [ 'child',
 #               'substance abuse',
 #               'alcoholism',
 #               'ptsd',
@@ -48,7 +48,7 @@ User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp
 #               'GLBTQ',
 #               'employment',
 #               'health-care',
-#               'womens health',
+#               'womens services',
 #               'immigration services'
 #               ]
 
@@ -88,11 +88,10 @@ User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp
 #   last_name = Faker::Name.last_name
 #   phone = Faker::PhoneNumber.phone_number
 #   text = Faker::Lorem.paragraph
-#   user_id = (37..46).to_a.sample
-#   agency_id = (21..36).to_a.sample()
+#   agency_id = (1..25).to_a.sample()
 #   agency_name = Agency.find(agency_id).name
 
-#   Contact.create(:user_id => 28,
+#   Contact.create(:user_id => 1,
 #                  :agency_id => agency_id,
 #                  :first_name => first_name,
 #                  :last_name => last_name,

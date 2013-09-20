@@ -12,7 +12,7 @@
 </div>
   <% @contact_list.each do |contact| %>
     <%= javascript_tag "activeContact('#{contact.last_name[0].downcase}')" %>
-    <div id="c_<%= contact.last_name[0] %>"></div>
+    <div id="c_<%= contact.last_name[0].downcase %>"></div>
     <div id="c_<%= contact.id %>"></div>
     <div class="bkg" >
       <div id="color">

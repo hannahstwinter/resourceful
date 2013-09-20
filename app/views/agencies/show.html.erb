@@ -25,7 +25,7 @@
     <% end %>
     <div id="reviews">
       <div id="color" class="clickable">
-        <p>Click Here to <% if current_user %> Write or <% end %> Read Reviews on <%= @agency.name %></p>
+        <p>Click Here to Read <% if current_user %> or Write <% end %> Reviews on <%= @agency.name %></p>
       </div>
 
       <% if !@agency.reviews.empty? %>
