@@ -183,6 +183,35 @@ p.user {
   margin: 12px 0 15px 0;
 }
 
+div.explain {
+  background-color: #ECF0F1;
+  height: 72px;
+  width: 240px;
+  border: solid #34495E 1px;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px 0 0 25px;
+  display:none;
+}
+
+div.question {
+  float: left;
+  padding-right: 10px;
+}
+
+div.question:hover + div.explain {
+  display: block;
+  position: absolute;
+}
+
+/*$('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#{color}'});
+$('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
+$("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
+$('img#circle').click(function(event){
+  event.preventDefault();
+  $("##{notice_id}").slideUp();
+});*/
+
 div#review {
   font-family: arial,sans serif;
   color: #2C3E50;
