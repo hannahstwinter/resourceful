@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      # session[:user_id] = user.id
       redirect_to root_path
     elsif user && !user.authenticate(params[:password])
       flash[:error] = "Invalid password."
@@ -21,7 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
-    # session.clear
     flash[:notice] = "You have been successfully logged out."
 
     redirect_to root_path

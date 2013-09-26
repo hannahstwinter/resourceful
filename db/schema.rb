@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919145213) do
+ActiveRecord::Schema.define(:version => 20130926185404) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130919145213) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "agency_name"
+    t.string   "email"
   end
 
   add_index "contacts", ["agency_id"], :name => "index_contacts_on_agency_id"

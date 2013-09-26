@@ -13,6 +13,7 @@ class ShareController < ApplicationController
              :agency => params[:agency],
              :agency_desc => params[:agency_desc],
              :phone => params[:phone],
+             :contact_email => params[:contact_email],
              :notes => params[:notes],
              :additional_notes => params[:add_notes],
              :user => current_user

@@ -27,6 +27,10 @@
     <%= text_field_tag :phone, @contact.phone %><br />
   </div>
   <div class="field">
+    <%= label_tag("Contact's Email:") %><br />
+    <%= text_field_tag :contact_email, @contact.email %><br />
+  </div>
+  <div class="field">
     <%= label_tag("Your notes:") %><br />
     <%= text_area_tag :notes, @contact.notes, :size => "35x6" %><br />
   </div>

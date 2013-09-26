@@ -13,6 +13,7 @@ class Mailer < ActionMailer::Base
     @agency = email[:agency]
     @agency_desc = email[:agency_desc]
     @phone = email[:phone]
+    @contact_email = email[:contact_email]
     @notes = email[:notes]
     @additional_notes = email[:additional_notes]
     @user = email[:user]
