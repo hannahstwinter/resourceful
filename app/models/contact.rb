@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :agency_id, :notes, :user_id, :first_name, :last_name, :phone, :agency_name
+  attr_accessible :agency_id, :notes, :user_id, :first_name, :last_name, :phone, :agency_name, :email
   belongs_to :user
   validates :agency_id, :presence => true
   validates :user_id, :presence => true
