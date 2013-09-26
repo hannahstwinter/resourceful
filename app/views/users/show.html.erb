@@ -22,7 +22,7 @@
         <p>
           <% if contact.agency_id.nil? %>
             <div class="question"><%= image_tag "question.png", :size => "20x20" %></div><%= contact.agency_name %>
-            <div class="explain">This agency has been deleted from Resourceful's database. Your contact will remain until you modify or delete it.</div>
+            <div class="explain">This agency has been deleted from Resourceful's database. Your contact will remain the same until you modify or delete it.</div>
           <% else %>
             <%= link_to contact.agency_name, agency_path(:id => contact.agency_id) %>
           <% end %>
