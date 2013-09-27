@@ -1,0 +1,12 @@
+p#delete-review {
+  margin: 10px 0 5px 30px;
+}
+
+p#review-body {
+  margin: 15px 0 15px 15px;
+}
+
+p.phone-error {
+  font-weight: bold;
+  color: #C0392B;
+}

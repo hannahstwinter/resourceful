@@ -1,0 +1,26 @@
+div.explain {
+  background-color: #ECF0F1;
+  height: 72px;
+  width: 240px;
+  border: solid #34495E 1px;
+  border-radius: 0 6px 6px 6px;
+  padding: 5px;
+  margin: 5px 0 0 25px;
+  display: none;
+}
+
+div.question {
+  float: left;
+  padding-right: 10px;
+}
+
+div.question:hover + div.explain {
+  display: block;
+  position: absolute;
+}
+
+div#authz {
+  padding-left: 20px;
+  height: 0px;
+  overflow: hidden;
+}

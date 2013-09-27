@@ -1,13 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+ /*
  *= require_self
  *= require_tree .
  */
@@ -107,6 +98,10 @@ h3 {
   color: #2C3E50;
 }
 
+.hidden {
+  display: none;
+}
+
 div.no-bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
@@ -141,13 +136,6 @@ div.bkg.main {
   padding: 0px 10px 10px 25px;
 }
 
-div#label {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0 0 0 20px;
-  margin: 0 auto;
-}
-
 dl.tags {
   margin: 0 auto;
   padding: 0;
@@ -164,53 +152,9 @@ dl.tags dd {
   margin-left: 15px;
 }
 
-p#phone {
-  margin: 0;
-}
-
-p#name {
-  padding: 0;
-}
-
-p.user {
-  font-family: arial,sans serif;
-  color: #2C3E50;
-  padding: 0px 20px 20px 20px;
-  margin: 0 auto;
-}
-
 .actions {
   margin: 12px 0 15px 0;
 }
-
-div.explain {
-  background-color: #ECF0F1;
-  height: 72px;
-  width: 240px;
-  border: solid #34495E 1px;
-  border-radius: 4px;
-  padding: 5px;
-  margin: 5px 0 0 25px;
-  display:none;
-}
-
-div.question {
-  float: left;
-  padding-right: 10px;
-}
-
-div.question:hover + div.explain {
-  display: block;
-  position: absolute;
-}
-
-/*$('#notices').append("<div id='#{notice_id}' class='flash_notice'><div id='notice_text'>#{text}</div></div>").css({'background-color':'#{color}'});
-$('##{notice_id}').prepend("<img id='circle' alt='Xcircle' height='20' src='/assets/xcircle.png' width='20' style='padding-right:20px;float:left;'>");
-$("##{notice_id}").css({'padding':'10px 10px 10px 20px'});
-$('img#circle').click(function(event){
-  event.preventDefault();
-  $("##{notice_id}").slideUp();
-});*/
 
 div#review {
   font-family: arial,sans serif;
@@ -239,10 +183,6 @@ div#delete a:hover {
   color: #8e44ad;
 }
 
-.hidden {
-  display: none;
-}
-
 div#bottom-spacer {
   height: 47px;
 }
@@ -265,15 +205,3 @@ a.inactive {
   pointer-events: none;
   cursor: default;
 }
-
-div#authz {
-  padding-left: 20px;
-  height: 0px;
-  overflow: hidden;
-}
-
-p.phone-error {
-  font-weight: bold;
-  color: #C0392B;
-}
-

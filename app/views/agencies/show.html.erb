@@ -32,10 +32,10 @@
         <% @agency.reviews.each do |review| %>
           <div id="review" class="hidden">
             <% @user = User.find(review.user_id) %>
-            <%= @user.name %> writes:<br /><br />
-            <%= review.body %><br />
+            <%= @user.name %> writes:<br />
+            <p id="review-body"><%= review.body %></p>
             <% if current_user && current_user.id == @user.id %>
-              <p><%= link_to 'Delete your Review', "/reviews/#{review.id}", :method => :delete %></p>
+              <p id="delete-review"><%= link_to 'Delete this Review', "/reviews/#{review.id}", :method => :delete %></p>
             <% end %>
           </div>
         <% end %>
