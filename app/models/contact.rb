@@ -6,18 +6,18 @@ class Contact < ActiveRecord::Base
   validates :user_id, :numericality => true
   validates :agency_id, :numericality => true
 
-  def self.search(search, user_id)
-    contacts = Contact.where(user_id: user_id).where('first_name like ? OR last_name like ? OR agency_name like ? OR notes like ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").order('last_name')
-  end
-
-  def self.display(user_id)
-    contacts = Contact.where("user_id = ?", user_id).order('last_name')
-  end
-
   def self.update_agency_id(id)
     contacts = Contact.where(:agency_id => id)
     contacts.each do |contact|
       contact.update_attribute(:agency_id, nil)
+    end
+  end
+
+  def self.display(user_id, search)
+    if search
+      Contact.where(user_id: user_id).where('first_name like ? OR last_name like ? OR agency_name like ? OR notes like ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").order('last_name')
+    else
+      Contact.where("user_id = ?", user_id).order('last_name')
     end
   end
 

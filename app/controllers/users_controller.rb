@@ -2,18 +2,13 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @agencies_for_authz_select = [["None", 0], ["NRVCS", 37]]
-
-    if !params[:search]
-      @contact_list = Contact.display(@user.id)
-    else
-      @contact_list = Contact.search(params[:search], @user.id)
-      if @contact_list.empty?
-        @contact_list = Contact.display(@user.id)
-        flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
-      end
-    end
-    @contact_list = nil if @contact_list.empty?
+    @contact_list = Contact.display(@user.id, params[:search])
     @alphabet_array = ('a'..'y').to_a
+
+    if @contact_list.empty?
+      @contact_list = nil if @contact_list.empty?
+      flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
+    end
   end
 
   def authorization
