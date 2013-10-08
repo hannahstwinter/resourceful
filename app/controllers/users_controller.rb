@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+    @agencies_for_authz_select = [["None", 0], ["NRVCS", 37]]
 
     if !params[:search]
       @contact_list = Contact.display(@user.id)

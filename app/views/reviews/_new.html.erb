@@ -1,11 +1,11 @@
 <div id="review" class="hidden">
-  <p>Enter your review for the agency <%= @agency.name %></p>
+  <p>Enter your review for the agency <%= agency.name %></p>
   <%= form_for :review, :url => {:controller => "reviews", :action => "create"} do |f| %>
     <div class="field">
       <%= f.text_area :body, :size => "24x12" %><br />
     </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :agency_id, :value => @agency.id %>
+      <%= f.hidden_field :agency_id, :value => agency.id %>
     <div class="actions">
       <%= f.submit %>
     </div>

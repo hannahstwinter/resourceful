@@ -7,7 +7,7 @@
     <%= form_tag ("user/authz") do %>
       <div class="field">
         <%= label_tag :agency_select, "Agency affiliation:" %><br/>
-        <%= select_tag :agency_select, options_for_select([["None", 0], ["NRVCS", 37]]) %>
+        <%= select_tag :agency_select, options_for_select(agencies_for_authz_select) %>
       </div>
       <div id="agency-key" class="hidden">
         <div class="field">

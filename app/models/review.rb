@@ -7,4 +7,12 @@ class Review < ActiveRecord::Base
   validates :body, :presence => true
   validates :user_id, :numericality => true
   validates :agency_id, :numericality => true
+
+  def self.get_users(reviews)
+    user_review_hash = Hash.new
+    reviews.each do |review|
+      user_review_hash[[User.find(review.user_id), review.id]] = review
+    end
+    return user_review_hash
+  end
 end

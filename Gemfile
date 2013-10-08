@@ -49,6 +49,12 @@ gem "bcrypt-ruby", "~> 3.0.0"
 
 gem "figaro"
 
+# gem "simplecov", "~> 0.7.1"
+
+gem 'simplecov', :require => false, :group => :test
+
+gem "rails_best_practices", "~> 1.14.4"
+
 # To use Jbuilder templates for JSON
 # gem "jbuilder"
 

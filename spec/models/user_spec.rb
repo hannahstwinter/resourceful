@@ -14,7 +14,7 @@ describe User do
 
   it "returns the role of the user" do
     user = User.create!(name: "awesomest user", email: "awesomest@user.com", password: "awesome", authz: "admin")
-    expect(User.role?(user)).to eq("admin")
+    expect(User.authz).to eq("admin")
   end
 
   it "verifies user authorization and assigns authz" do

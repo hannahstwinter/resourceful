@@ -16,10 +16,6 @@ class User < ActiveRecord::Base
     find_by_email(email).try(:authenticate, password)
   end
 
-  def self.role?(user)
-    user.authz
-  end
-
   def self.authorize(id, access_key)
     @user = User.find(id)
     if access_key == ENV["NRVCS_ADMIN_KEY"]

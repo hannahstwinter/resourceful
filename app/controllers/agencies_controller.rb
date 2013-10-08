@@ -21,6 +21,7 @@ class AgenciesController < ApplicationController
 
   def show
     @agency = Agency.find(params[:id])
+    @user_reviews_hash = Review.get_users(@agency.reviews)
   end
 
   def edit

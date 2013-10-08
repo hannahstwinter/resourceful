@@ -28,13 +28,13 @@
         <p>Click Here to Read <% if current_user %> or Write <% end %> Reviews on <%= @agency.name %></p>
       </div>
 
-      <% if !@agency.reviews.empty? %>
-        <% @agency.reviews.each do |review| %>
+      <% if !@user_reviews_hash.empty? %>
+        <% @user_reviews_hash.each do |user, review| %>
           <div id="review" class="hidden">
-            <% @user = User.find(review.user_id) %>
-            <%= @user.name %> writes:<br />
+            <%= user[0].name %> writes:<br />
             <p id="review-body"><%= review.body %></p>
-            <% if current_user && current_user.id == @user.id %>
+            <p id="review-date"><%= review.created_at.strftime('%b %d, %Y') %></p>
+            <% if current_user && current_user.id == user[0].id %>
               <p id="delete-review"><%= link_to 'Delete this Review', "/reviews/#{review.id}", :method => :delete %></p>
             <% end %>
           </div>
@@ -46,7 +46,7 @@
       <% end %>
 
       <% if can? :create, @review %>
-        <%= render "reviews/new" %>
+        <%= render partial: "reviews/new", locals: {agency: @agency} %>
       <% end %>
     </div>
   </div>
