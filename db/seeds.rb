@@ -101,21 +101,6 @@ require 'faker'
 #                 )
 # end
 
-# # Votes
-
-# 100.times do
-#   vote = rand(5) + 1
-#   user_id = (23..30).to_a.sample
-#   agency_id = rand(25) + 1
-#   user_agency_id = rand(25) + 1
-
-#   Vote.create(:user_id => user_id,
-#               :user_agency_id => user_agency_id,
-#               :agency_id => agency_id,
-#               :vote => vote
-#              )
-# end
-
 # User.create!(name: "Hannah Winter", email: "han@me.com", password: "hannah", agency_id: 22)
 # User.create!(name: "Hannah Winter", email: "hannah@han.com", password: "hannah", agency_id: 22)
 # User.create!(name: "Hannah Winter", email: "han@nah.com", password: "hannah", agency_id: 22)

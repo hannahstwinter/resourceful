@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926185404) do
+ActiveRecord::Schema.define(:version => 20131008170816) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -70,13 +70,6 @@ ActiveRecord::Schema.define(:version => 20130926185404) do
     t.datetime "password_reset_sent_at"
   end
 
-  create_table "votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "agency_id"
-    t.integer  "user_agency_id"
-    t.integer  "vote",           :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
+  add_index "users", ["agency_id"], :name => "index_users_on_agency_id"
 
 end

@@ -21,4 +21,13 @@ class Contact < ActiveRecord::Base
     end
   end
 
+  def self.authz_and_destroy(current_user, contact)
+    if current_user.id == contact.user_id
+      Contact.destroy(contact.id)
+      return true
+    else
+      return false
+    end
+  end
+
 end

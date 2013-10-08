@@ -28,14 +28,12 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = Contact.find(params[:id])
-
-    if current_user.id == @contact.user_id
+    annihilated = Contact.authz_and_destroy(current_user, @contact)
+    if annihilated
       flash[:notice] = "Your contact, #{@contact.first_name} #{@contact.last_name}, has been deleted."
-      Contact.destroy(@contact.id)
-      redirect_to "/users"
     else
-      flash[:alert] = "Hack alert! You are not authorized to meddle in such ways!"
-      redirect_to root_url
+      flash[:error] = "Sorry, there was an error in deleting your contact."
     end
+    redirect_to "/users"
   end
 end

@@ -17,7 +17,6 @@ Resourceful::Application.routes.draw do
   get "about" => "about#index"
   get "email" => "email#index"
   get "share" => "share#index"
-  # resources :users
   get "/users" => "users#show"
 
   get "/contact/:id" => "contacts#new", :as => :contact
