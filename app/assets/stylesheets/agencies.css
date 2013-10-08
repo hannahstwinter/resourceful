@@ -10,3 +10,12 @@ p.phone-error {
   font-weight: bold;
   color: #C0392B;
 }
+
+div#review {
+  padding: 20px;
+}
+
+p#review-date {
+  float: right;
+  margin-top: 0;
+}

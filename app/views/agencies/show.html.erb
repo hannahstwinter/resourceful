@@ -31,9 +31,10 @@
       <% if !@user_reviews_hash.empty? %>
         <% @user_reviews_hash.each do |user, review| %>
           <div id="review" class="hidden">
+            <p id="review-date"><%= review.created_at.strftime('%b %d, %Y') %></p>
+
             <%= user[0].name %> writes:<br />
             <p id="review-body"><%= review.body %></p>
-            <p id="review-date"><%= review.created_at.strftime('%b %d, %Y') %></p>
             <% if current_user && current_user.id == user[0].id %>
               <p id="delete-review"><%= link_to 'Delete this Review', "/reviews/#{review.id}", :method => :delete %></p>
             <% end %>
