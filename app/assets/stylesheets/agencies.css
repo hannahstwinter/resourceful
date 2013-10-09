@@ -11,6 +11,10 @@ p.phone-error {
   color: #C0392B;
 }
 
+div#reviews {
+  margin-bottom:15px;
+}
+
 div#review {
   padding: 20px;
 }
