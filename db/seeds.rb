@@ -9,7 +9,7 @@
 require 'rubygems'
 require 'faker'
 
-# # NRVCS
+# # # NRVCS
 
 # nrvcs = Agency.create!(:name => "New River Valley Community Services (NRVCS)",
 #                        :street => "1006 E Main St.",
@@ -22,20 +22,10 @@ require 'faker'
 #                        :tag => "child,family,rehabilitation,financial,crisis"
 #                        )
 
+# # # Users
+
 # User.create!(name: "Hannah Winter", email: "hstwinter@gmail.com", password: "temp", agency_id: nrvcs.id)
 # User.create!(name: "Sarah Winter", email: "winter.hs@gmail.com", password: "temp", agency_id: nrvcs.id)
-
-# # Review
-
-# 100.times do
-#   body = Faker::Lorem.paragraph
-#   agency_id = rand(25) + 1
-#   user_id = rand(2) + 1
-#   review = Review.create( :user_id => user_id,
-#                           :agency_id => agency_id,
-#                           :body => body
-#                           )
-# end
 
 # # # Agency
 
@@ -81,7 +71,19 @@ require 'faker'
 #                           )
 # end
 
-# # Contacts
+# # # Review
+
+# 50.times do
+#   body = Faker::Lorem.paragraph
+#   agency_id = rand(25) + 1
+#   user_id = rand(2) + 1
+#   review = Review.create( :user_id => user_id,
+#                           :agency_id => agency_id,
+#                           :body => body
+#                           )
+# end
+
+# # # Contacts
 
 # 6.times do
 #   first_name = Faker::Name.first_name

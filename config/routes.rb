@@ -3,6 +3,7 @@ Resourceful::Application.routes.draw do
 
   root :to => "pages#index"
   resources :pages
+  # only index
 
   get "signup" => "signups#new", :as => :signup
   post "signup" => "signups#create"
@@ -12,6 +13,7 @@ Resourceful::Application.routes.draw do
   delete "signout" => "sessions#destroy", :as => :signout
 
   resources :agencies
+  # except index
   match "agency" => "agencies#show"
 
   get "about" => "about#index"
@@ -27,9 +29,13 @@ Resourceful::Application.routes.draw do
   post "user/authz" => "users#authorization"
 
   resources :reviews
+  # only new, create, destroy
   resources :agency
+  # except index
   resources :contacts
+  # except show, index
   resources :password_resets
+  # except show, destroy, index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

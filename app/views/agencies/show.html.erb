@@ -2,13 +2,13 @@
   <div id="color">
     <p id="name"><%= @agency.name %></p>
   </div>
+  <dl class="tags">
+    <dt>Agency Tags:</dt>
+    <% @agency.tag.split(",").each do |tag| %>
+      <dd><%= tag %></dd>
+    <% end %>
+  </dl>
   <div class="bkg main">
-    <dl class="tags">
-      <dt>Agency Tags:</dt>
-      <% @agency.tag.split(",").each do |tag| %>
-        <dd><%= tag %></dd>
-      <% end %>
-    </dl>
     <% if @agency.url %>
       <p><a href="http://<%= @agency.url %>", target="_blank"><%= @agency.url %></a></p>
     <% end %>

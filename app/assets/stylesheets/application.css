@@ -113,16 +113,21 @@ div.no-bkg.form {
   padding: 20px 5px 5px 20px;
 }
 
-div.bkg.list {
-  padding: 0 0 1px 0;
-}
-
 div.bkg {
   font-family: arial,sans serif;
   color: #2C3E50;
   background-color: #95A5A6;
-  margin: 20px;
+  margin: 20px 0 20px 20px;
+  padding-right: 0;
   width: 75%;
+}
+
+div.bkg.list {
+  padding: 0 0 1px 0;
+}
+
+div.bkg.main {
+  padding: 0px 10px 10px 25px;
 }
 
 div#color {
@@ -132,12 +137,8 @@ div#color {
   padding: 1px 0 1px 30px;
 }
 
-div.bkg.main {
-  padding: 0px 10px 10px 25px;
-}
-
 dl.tags {
-  margin: 0 auto;
+  margin: 20px 20px 0 0;
   padding: 0;
   list-style-type: none;
   float: right;
