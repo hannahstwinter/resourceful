@@ -24,3 +24,8 @@ div#authz {
   height: 0px;
   overflow: hidden;
 }
+
+div.bkg.authz {
+  bottom: 47px;
+  position: fixed;
+}
