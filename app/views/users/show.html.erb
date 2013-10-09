@@ -1,15 +1,13 @@
 <div class="no-bkg">
-<% if @contact_list.nil? %>
-  <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.</h3>
-<% elsif @contact_list %>
-  <p><%= render partial: "contacts/nav", locals: {alphabet_array: @alphabet_array} %></p>
-  <p>Search your contact book by name, agency, or notes:</p>
-  <%= form_tag('/users', :method => 'get') do %>
-    <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
-    <%= submit_tag "Search", :name => nil %><br/><br/>
+  <% if @user.contacts.empty? %>
+    <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.</h3>
+  <% else %>
+    <p><%= render partial: "contacts/nav", locals: {alphabet_array: @alphabet_array} %></p>
+    <p><%= render partial: "search" %></p>
   <% end %>
-  <%= link_to "Click Here", "/users", class: "bkg" %> to clear out your search results and see all of your contacts.
 </div>
+
+<% if !@contact_list.nil? %>
   <% @contact_list.each do |contact| %>
     <%= javascript_tag "activeContact('#{contact.last_name[0].downcase}')" %>
     <div id="c_<%= contact.last_name[0].downcase %>"></div>

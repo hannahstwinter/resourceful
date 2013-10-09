@@ -1,0 +1,6 @@
+<p>Search your contact book by name, agency, or notes:</p>
+<%= form_tag('/users', :method => 'get') do %>
+  <%= text_field_tag :search, params[:search], :id => 'search_field' %><br /><br />
+  <%= submit_tag "Search", :name => nil %><br/><br/>
+<% end %>
+<%= link_to "Click Here", "/users", class: "bkg" %> to clear out your search results and see all of your contacts.

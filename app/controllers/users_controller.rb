@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
     if @contact_list.empty?
       @contact_list = nil if @contact_list.empty?
+    end
+    if @contact_list == nil && params[:search] != nil
       flash.now[:alert] = "Your search, '#{params[:search]}', did not return any results."
     end
   end
