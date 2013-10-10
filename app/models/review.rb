@@ -11,7 +11,7 @@ class Review < ActiveRecord::Base
   def self.get_users(reviews)
     user_review_hash = Hash.new
     reviews.each do |review|
-      user_review_hash[[User.find(review.user_id), review.id]] = review
+      user_review_hash[[review.user, review.id]] = review
     end
     return user_review_hash
   end
