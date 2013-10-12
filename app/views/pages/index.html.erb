@@ -1,4 +1,5 @@
 <%= render "search" %>
+<%= render partial: "tags", locals: {tags: @tags} %>
 
 <div class="resource-list">
   <% @agencies.each do |agency| %>

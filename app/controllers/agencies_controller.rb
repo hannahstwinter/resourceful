@@ -6,9 +6,10 @@ class AgenciesController < ApplicationController
   end
 
   def create
+    tags = Tags.process_tags(params[:agency][:tag])
+    params[:agency][:tag] = Tags.find_or_create(tags)
     @agency = Agency.new(params[:agency])
     @similar = Agency.find_similar(@agency.name)
-
     if @agency.save
       flash[:notice] = "Agency added."
       redirect_to root_url

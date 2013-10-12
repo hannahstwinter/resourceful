@@ -7,5 +7,6 @@ class PagesController < ApplicationController
       @user_contacts.each {|contact| @contact_agency_ids[contact.id] = contact.agency_id }
     end
     @agencies = Agency.search(params[:search], @user, @contact_agency_ids)
+    @tags = all_tags
   end
 end

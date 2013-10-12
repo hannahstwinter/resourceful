@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008170816) do
+ActiveRecord::Schema.define(:version => 20131011234518) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(:version => 20131008170816) do
   add_index "reviews", ["agency_id"], :name => "index_reviews_on_agency_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
+  create_table "tags", :force => true do |t|
+    t.string   "tag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -69,7 +75,5 @@ ActiveRecord::Schema.define(:version => 20131008170816) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
   end
-
-  add_index "users", ["agency_id"], :name => "index_users_on_agency_id"
 
 end
