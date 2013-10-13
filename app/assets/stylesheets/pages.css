@@ -1,0 +1,36 @@
+.search {
+  padding: 0 0 0 20px;
+  font-family: arial,sans serif;
+  color: #2C3E50;
+}
+
+.tag-nav {
+  padding: 20px 20px 5px 20px;
+  font-family: arial,sans serif;
+  color: #2C3E50;
+}
+
+.tag-list {
+  width: 300px;
+  border: solid #34495E 1px;
+  border-radius: 0 6px 6px 6px;
+  margin-left: 75px;
+  padding: 10px;
+  position: absolute;
+  background-color: #ECF0F1;
+}
+
+ul.tags {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.tags li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.tag {
+
+}

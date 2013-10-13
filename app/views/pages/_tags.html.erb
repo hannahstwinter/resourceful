@@ -1,6 +1,10 @@
-<div class="no-bkg tag-nav">
-  Or click a 'tag' to list all associated agencies. !LINK EM TO SEARCH!
-  <% tags.each do |t| %>
-    <%= t %>
-  <% end %>
+<div class="tag-nav">
+  <a id="tag-search">List Tags</a><br/>
+  <div class="tag-list hidden">
+    <ul class="tags">
+    <% tags.each do |t| %>
+      <li><%= link_to "#{t}", "/pages?utf8=✓&search=#{t}" %></li>
+    <% end %>
+  </ul>
+  </div>
 </div>

@@ -40,13 +40,16 @@ function slideDownAuthz(){
 
 $(document).ready(function(){
 
+  $("a#tag-search").click(function(){
+    $(".tag-list").toggleClass("hidden")
+  });
+
   $('div#color.clickable').click(function(){
     $('div#review.hidden').slideToggle('2000',"linear");
   });
 
   $('a.nav').click(function(e){
     e.preventDefault();
-    console.log(this.id);
   });
 
   $('a.top').click(function(e){
@@ -71,15 +74,6 @@ $(document).ready(function(){
       counter = 0;
     }
   });
-
-  // $('a.uc-jump').click(function(e){
-  //   console.log(this.id);
-  //   var el = 'c ' + this.id + '';
-  //   console.log(el);
-  //   page.onload = function(){
-  //     document.getElementById(el).scrollIntoView();
-  //   };
-  // });
 
 })
 

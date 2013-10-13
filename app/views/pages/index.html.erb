@@ -1,37 +1,41 @@
 <%= render "search" %>
 <%= render partial: "tags", locals: {tags: @tags} %>
 
-<div class="resource-list">
-  <% @agencies.each do |agency| %>
-    <div class="bkg list">
-      <div id="color">
-        <p><%= link_to agency.name, agency_path(:id => agency.id) %></p>
-      </div>
-      <dl class="tags">
-        <dt>Agency Tags:</dt>
-        <% agency.tag.split(",").each do |tag| %>
-          <dd><%= tag %></dd>
-        <% end %>
-      </dl>
-      <div class="bkg main">
-        <% if agency.url %>
-          <p><a href="http://<%= agency.url %>", target="_blank"><%= agency.url %></a></p>
-        <% end %>
-        <p id="short-description"><%= agency.short_description %></p>
-        <p id="phone">Phone: <%= agency.phone %></p>
-        <p id="address"><%= agency.street %><br />
-        <%= agency.city %>, <%= agency.state %></p>
-        <% if current_user %>
-          <% if @contact_agency_ids.has_value?(agency.id) %>
-            <%= link_to 'You Have a Contact Here', "/users/#c_#{@contact_agency_ids.key(agency.id)}" %> |           <%= link_to 'Add another Contact', "/contact/#{agency.id}", :class => "add-link" %>
-          <% else %>
-            <%= link_to 'Add to Contacts', "/contact/#{agency.id}", :class => "add-link" %>
+<% if @agencies %>
+  <div class="resource-list">
+    <% @agencies.each do |agency| %>
+      <div class="bkg list">
+        <div id="color">
+          <p><%= link_to agency.name, agency_path(:id => agency.id) %></p>
+        </div>
+        <dl class="tags">
+          <dt>Agency Tags:</dt>
+          <% agency.tag.split(",").each do |tag| %>
+            <dd><%= tag %></dd>
           <% end %>
-        <% end %>
+        </dl>
+        <div class="bkg main">
+          <% if agency.url %>
+            <p><a href="http://<%= agency.url %>", target="_blank"><%= agency.url %></a></p>
+          <% end %>
+          <p id="short-description"><%= agency.short_description %></p>
+          <p id="phone">Phone: <%= agency.phone %></p>
+          <p id="address"><%= agency.street %><br />
+          <%= agency.city %>, <%= agency.state %></p>
+          <% if current_user %>
+            <% if @contact_agency_ids.has_value?(agency.id) %>
+              <%= link_to 'You Have a Contact Here', "/users/#c_#{@contact_agency_ids.key(agency.id)}" %> |           <%= link_to 'Add another Contact', "/contact/#{agency.id}", :class => "add-link" %>
+            <% else %>
+              <%= link_to 'Add to Contacts', "/contact/#{agency.id}", :class => "add-link" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+  Your search returned no results.
+<% end %>
 
 <div id="bottom-spacer"></div>
 <div id="bottom-bar">

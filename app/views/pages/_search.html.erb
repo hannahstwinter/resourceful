@@ -1,6 +1,5 @@
-<div class="no-bkg">
-  <p>Search for agencies by name or field<br/>
-     (eg 'child welfare', 'healthcare', etc)</p>
+<div class="search">
+  <p>Search for agencies by name or field (eg 'child welfare', 'healthcare', etc)</p>
   <%= form_tag('/pages', :method => 'get') do %>
     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
     <%= submit_tag "Search", :name => nil %>

@@ -3,7 +3,7 @@
     <h3>Once you've added contacts from the <%= link_to "Home", "/" %> page, your Contact Book will list them here.</h3>
   <% else %>
     <p><%= render partial: "contacts/nav", locals: {alphabet_array: @alphabet_array} %></p>
-    <p><%= render partial: "search" %></p>
+    <%= render partial: "search" %>
   <% end %>
 </div>
 
